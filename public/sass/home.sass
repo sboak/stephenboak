@@ -1,0 +1,276 @@
+//VARS
+$sb_green: #0FB913
+$container_width: 960px
+.clear
+  clear: both
+  float: none
+
+@mixin round($radius: 4px) 
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  
+@mixin graygrad
+  background: -moz-linear-gradient(top, rgba(64,64,64,1) 0%, rgba(64,64,64,0) 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(64,64,64,1)), color-stop(100%,rgba(64,64,64,0))) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(64,64,64,1) 0%,rgba(64,64,64,0) 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(64,64,64,1) 0%,rgba(64,64,64,0) 100%) /* Opera11.10+ */
+  background: -ms-linear-gradient(top, rgba(64,64,64,1) 0%,rgba(64,64,64,0) 100%) /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#404040', endColorstr='#00404040',GradientType=0 ) /* IE6-9 */
+  background: linear-gradient(top, rgba(64,64,64,1) 0%,rgba(64,64,64,0) 100%) /* W3C */
+
+//RESET////////////////////////////////////////////////////
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+  display: block
+body
+  line-height: 1
+ol, ul
+  list-style: none
+blockquote, q
+  quotes: none
+blockquote:before, blockquote:after,
+q:before, q:after
+  content: ''
+  content: none
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+///////////////////////////////////////////////////////////
+
+body
+  background: -webkit-radial-gradient(black 15%, transparent 16%) 0 0, -webkit-radial-gradient(black 15%, transparent 16%) 8px 8px, -webkit-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px, -webkit-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px
+  background: -moz-radial-gradient(black 15%, transparent 16%) 0 0, -moz-radial-gradient(black 15%, transparent 16%) 8px 8px, -moz-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px, -moz-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px
+  background-color: #262626
+  background-size: 16px 16px
+  color:  white
+  font-family: 'museo-sans-1','museo-sans-2', sans-serif
+  font-size: 16px
+  font-weight: normal
+  line-height: 1.5
+  text-shadow: 0 1px 0 black
+.container
+  margin: 0 auto
+  width: $container_width
+.L1
+  margin: 2.5em 0
+.L2
+  margin: 1.5em 0
+h1
+  font-family: 'museo-slab-1','museo-slab-2', sans-serif
+  font-size: 225%
+  font-weight: bold
+  line-height: 1.25
+h2
+  color: gray
+  font-family: 'museo-slab-1','museo-slab-2', sans-serif
+  font-size: 150%
+  font-weight: light
+  margin-bottom: .25em
+a
+  color: $sb_green
+  text-decoration: none
+  &:hover
+    text-decoration:  underline
+    
+///////////////////////////////////////////////////////////
+// MAIN NAVIGATION BAR ////////////////////////////////////
+///////////////////////////////////////////////////////////
+nav
+  background-image: url('/images/logo.png')
+  background-position: 0 0
+  background-repeat: no-repeat
+  display: block
+  height: 80px
+  min-width: 42px
+  margin: 30px auto
+  width: $container_width
+  //padding-left: 60px
+  ul
+    float: right
+    list-style: none
+    li
+      display: inline-block
+      float: left
+      padding: 0 20px
+      text-align: right
+      a
+        color: inherit
+        font-weight: bold
+        &:hover
+          color: $sb_green
+          text-decoration: none
+
+///////////////////////////////////////////////////////////
+// HEADLINE SECTION ///////////////////////////////////////
+///////////////////////////////////////////////////////////
+.headline
+  padding-right: 220px
+  p
+    font-size: 110%
+img.me
+  -webkit-transform: rotate(3deg)
+  -moz-transform: rotate(3deg)
+  -webkit-box-shadow: 0 2px 5px black
+  -moz-box-shadow: 0 2px 5px black
+  box-shadow: 0 2px 5px black
+  border: 5px solid white
+  float: right
+  position: relative
+  right: 0
+  top: 5px
+#social
+  @include round
+  @include graygrad
+  padding: 1em
+  width: 60%
+  .social
+    -webkit-transition: all 250ms
+    -moz-transition: all 250ms
+    -o-transition: all 250ms
+    -ms-transition: all 250ms
+    transition: all 250ms
+    background-repeat: no-repeat
+    background-position: top left
+    display: inline-block
+    height: 32px
+    margin-right: 15px
+    position: relative
+    width: 32px
+    &:hover
+      text-decoration: none
+      &:after
+        -webkit-transition: all 250ms
+        -moz-transition: all 250ms
+        -o-transition: all 250ms
+        -ms-transition: all 250ms
+        transition: all 250ms
+        color: gray
+        content: attr(title)
+        display: inline-block
+        position: absolute
+        left: 0
+        text-align: center
+        top: 36px
+    &:hover:after
+      color: $sb_green
+  #twitter
+    background-image: url('/images/icon-twitter.png')
+    &:hover
+      background-image: url('/images/icon-twitter-hover.png')
+  #facebook
+    background-image: url('/images/icon-facebook.png')
+    &:hover
+      background-image: url('/images/icon-facebook-hover.png')
+  #linkedin
+    background-image: url('/images/icon-linkedin.png')
+    &:hover
+      background-image: url('/images/icon-linkedin-hover.png')
+  #github
+    background-image: url('/images/icon-github.png')
+    &:hover
+      background-image: url('/images/icon-github-hover.png')
+
+
+///////////////////////////////////////////////////////////
+// PORTFOLIO SECTION //////////////////////////////////////
+///////////////////////////////////////////////////////////
+#portfolio
+  figure
+    -webkit-transition: all 250ms
+    -moz-transition: all 250ms
+    -o-transition: all 250ms
+    -ms-transition: all 250ms
+    transition: all 250ms
+    background-color: #404040
+    border: 5px solid #404040
+    display: inline-block
+    height: 320px
+    margin-right: 5px
+    position: relative
+    vertical-align: top
+    width: 300px
+    &:hover
+      border-color: $sb_green
+    img
+      height: 200px
+      width: 300px
+    .name
+      color: #CCC
+      line-height: 1.2
+      padding: 3px 5px
+    .desc
+      display: block
+      font-size: 90%
+      line-height: 1.2
+      padding: 3px 5px
+//  h2
+//    background-color: gray
+//    color: white
+//    display: inline-block
+//    height: 200px
+//    line-height: 200px
+//    margin-right: 5px
+//    padding: 5px
+//    overflow: hidden
+//    text-align: center
+//    vertical-align: top
+//    width: 300px
+//    &:after
+//      content: " ›"
+      
+///////////////////////////////////////////////////////////
+// WRITING SECTION ////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#writing
+  .L2
+    display: inline-block
+    float: left
+    margin-right: 15px
+    width: 460px
+  #tweets
+    width: 460px
+    li
+      @include graygrad
+      margin: .5em 0
+      padding: .5em
+    img
+      float: left
+      padding: 0 10px 0 0
+    .date
+      color: gray
+      font-size: 90%
+    .tweets
+      @include round
+      background: black
+      padding: 5px
+#about
+  .L2
+    display: inline-block
+    float: left
+    margin-right: 15px
+    width: 300px
+footer
+  background: black
+  padding: 20px

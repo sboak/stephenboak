@@ -1,37 +1,121 @@
-!!! 5
-/[if lt IE 7] <html lang="en" class="no-js ie6">
-/[if IE 7 ]    <html lang="en" class="no-js ie7">
-/[if IE 8 ]    <html lang="en" class="no-js ie8">
-/[if IE 9 ]    <html lang="en" class="no-js ie9">
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
-%head
-  %meta{:charset => "utf-8"}/
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  %title="Stephen Boak"
-  %meta{:content => "Personal website of Stephen Boak", :name => "description"}/
-  %meta{:content => "Stephen Boak", :name => "author"}/
-  / Mobile viewport optimized: j.mp/bplateviewport
-  %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
-  / Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
-  %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
-  %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
-  / All JavaScript at the bottom, except for Modernizr which enables HTML5 elements &amp; feature detects
-  / %script{:src => "/js/modernizr-1.5.min.js"}
-%body
-  %h1 Welcome  
-  %p  
-    Welcome to my website made with Sinatra and HAML
-  %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
-  %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"}
-  :javascript
-    !window.jQuery && document.write('<script src="javascripts/jquery-1.4.2.min.js"><\/script>')
-  /[if lt IE 7 ]
-    <script src="js/dd_belatedpng.js?"></script>
-    <script>
-    \  //fix those png IMGs and .png_bg background-images
-    \  DD_belatedPNG.fix('img, .png_bg');
-    </script>
-  / yui profiler and profileviewer - remove for production
-  / %script{:src => "js/profiling/yahoo-profiling.min.js?"}
-  / %script{:src => "js/profiling/config.js?v=1"}
-  / end profiling code
+%img{:class=>"me", :src=>"/images/me.jpg"}
+%section{:class=>"L1 headline"}
+  %h1 I'm Steve Boak, a product designer and front-end developer in San Francisco, California.
+  %p
+    I work at 
+    %a{:href => "http://www.boundary.com"} Boundary
+    designing a next-generation real-time network monitoring and operations platform.
+  %section{:class=>"L2", :id=>"social"}
+    %h2 Other Places to Find Me
+    %a{:href=>"http://www.twitter.com/sboak", :class=>"social", :title=>"Twitter", :id=>"twitter"}
+    %a{:href=>"http://www.facebook.com/stephen.boak", :class=>"social", :title=>"Facebook", :id=>"facebook"}
+    %a{:href=>"http://www.linkedin.com/in/stephenboak", :class=>"social", :title=>"LinkedIn", :id=>"linkedin"}
+    %a{:href=>"https://github.com/sboak", :class=>"social", :title=>"GitHub", :id=>"github"}
+%section{:class=>"L1", :id=>"portfolio"}
+  %h1 Portfolio
+  %section{:class=>"L2", :id=>"web"}
+    %h2 Web
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-quid.jpg", :alt=>"Quid Project Thumbnail", :title=>"View Project"}
+      %figcaption
+        %span.name Quid | Pro
+        %span.desc Web application tracking the performance of private technology companies and allowing users to explore new and emerging companies and spaces.
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-raf.jpg", :alt=>"World Bank RAF Project Thumbnail", :title=>"View Project"}
+      %figcaption
+        %span.name World Bank RAF
+        %span.desc Tool for evaluating energy efficiency opportunities in developing cities by comparing key performance indicators against similar cities.
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-riyadh.jpg", :alt=>"Riyadh Region Dashboard Project Thumbnail", :title=>"View Project"}
+      %figcaption
+        %span.name Riyadh Region Dashboard
+        %span.desc Dashboard for government officials to monitor progress and spending on urban development projects around the Riyadh region.
+  %section{:class=>"L2", :id=>"architecture"}
+    %h2 Architecture
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-dragonfly.jpg", :alt=>"Dragonfly Project Thumbnail"}
+      %figcaption
+        %span.name Dragonfly
+        %span.desc Temporary installation at SCIArc inspired by the wing of a dragonfly, hand-made by students. Over 2,000lb of aluminum, attached at only 3 points in the room.
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-helios.jpg", :alt=>"Helios House Project Thumbnail"}
+      %figcaption
+        %span.name Helios House
+        %span.desc Sustainable gas station in Los Angeles featuring solar power, a 100%-recycled steel canopy, rainwater collection, green roof, and LED lighting.
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-beekman.jpg", :alt=>"Beekman Tower Project Thumbnail"}
+      %figcaption
+        %span.name Beekman Tower
+        %span.desc Frank Gehry-designed high-rise in NYC featuring a doubly-curved two-layer curtain wall which I optimized for construction.
+  %section{:class=>"L2", :id=>"other"}
+    %h2 Other
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-foot.jpg", :alt=>"Diabetic Foot Research Project Thumbnail"}
+      %figcaption
+        %span.name Ann Arbor Innovations
+        %span.desc Worked with the orthotics & prosthetics department to design an insole that significantly reduced in ulceration in diabetic patients.
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-doublevision.png", :alt=>"Double Vision Test Project Thumbnail"}
+      %figcaption
+        %span.name Double-Vision Test
+        %span.desc Designed in 2003, partnership with a local ophthalmologist to replace the rudimentary paper test with a digital version. Awarded a provisional patent.
+    %figure
+      %a{:href=>"#"}
+        %img{:src=>"/images/thumb-ipod.jpg", :alt=>"Homemade iPod Case Project Thumbnail"}
+      %figcaption
+        %span.name Homemade iPod Case
+        %span.desc Student project to build an iPod case out of acrylic on a 2.5-axis CNC mill. Wrote all the machine code and made dozens of prototypes.
+    
+%section{:class=>"L1", :id=>"writing"}
+  %h1 Writing
+  %section{:class=>"L2", :id=>"recent_posts"}
+    %h2 Recent Blog Posts
+    #posts
+  %section{:class=>"L2", :id=>"recent_tweets"}
+    %h2 Recent Tweets
+    #tweets
+  .clear
+%section{:class=>"L1", :id=>"about"}
+  %h1 About Me
+  %section{:class=>"L2", :id=>"skills_current"}
+    %h2 Skills that I actively use
+    %ul
+      %li
+        HTML5 | HAML | ERB
+      %li
+        CSS | Sass | Frameworks (960, blueprint)
+      %li
+        Graphic Design and Layout (Photoshop, Illustrator, InDesign)
+      %li
+        Javascript | Jquery
+      %li
+        D3        
+      %li
+        Ruby | Sinatra | Rails
+      %li
+        MySQL
+  %section{:class=>"L2", :id=>"skills_past"}
+    %h2 Skills from the past
+    %ul
+      %li
+        Parametric modeling / CATIA / Revit
+      %li
+        GIS (Google Earth, ArcGIS)
+      %li
+        CNC Machining / gcode
+  %section{:class=>"L2", :id=>"interests"}
+    %h2 Interests
+    %ul
+      %li Data Visualization
+      %li Interaction Design
+      %li Prototyping
+      %li Information Architecture
+  .clear
