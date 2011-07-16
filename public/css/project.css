@@ -1,0 +1,141 @@
+.clear {
+  clear: both;
+  float: none; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #262626;
+  background-image: url("/images/bg_black_paper.png");
+  color: #e5e5e5;
+  font-family: "museo-sans-1", "museo-sans-2", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  text-shadow: 0 1px 0 black; }
+
+.container {
+  margin: 0 auto;
+  width: 960px; }
+
+.L1 {
+  margin: 3em 0; }
+
+.L2 {
+  margin: 1.5em 0; }
+
+h1 {
+  font-family: "museo-slab-1", "museo-slab-2", sans-serif;
+  font-size: 175%;
+  font-weight: bold;
+  line-height: 1.25; }
+
+h2 {
+  color: gray;
+  font-family: "museo-slab-1", "museo-slab-2", sans-serif;
+  font-size: 150%;
+  font-weight: light;
+  margin-bottom: 0.25em; }
+
+a {
+  color: #0fb913;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+header {
+  background-color: #262626;
+  margin-top: 1em;
+  padding: 0.5em 0; }
+  header h1 {
+    color: gray;
+    display: inline-block;
+    width: 50%; }
+
+.btn_project {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: gray;
+  font-size: 200%;
+  font-weight: bold;
+  height: 55px;
+  line-height: 50px;
+  position: fixed;
+  top: 10px;
+  z-index: 1; }
+  .btn_project:hover {
+    color: #0fb913;
+    text-decoration: none; }
+
+#btn_back {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  height: 50px;
+  left: 10px;
+  padding: 0 10px; }
+  #btn_back:before {
+    content: "‹ "; }
+
+#btn_to_top {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  display: none;
+  right: 10px;
+  text-align: center;
+  width: 50px; }
+
+.project figure {
+  background-color: #262626;
+  border: 5px solid #262626;
+  display: inline-block;
+  margin-bottom: 1em;
+  position: relative;
+  vertical-align: top; }
+  .project figure figcaption {
+    display: block;
+    line-height: 1.2;
+    padding: 0.5em 5px; }

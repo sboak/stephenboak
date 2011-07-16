@@ -46,11 +46,9 @@ table {
   border-spacing: 0; }
 
 body {
-  background: -webkit-radial-gradient(black 15%, transparent 16%) 0 0, -webkit-radial-gradient(black 15%, transparent 16%) 8px 8px, -webkit-radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px, -webkit-radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
-  background: -moz-radial-gradient(black 15%, transparent 16%) 0 0, -moz-radial-gradient(black 15%, transparent 16%) 8px 8px, -moz-radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px, -moz-radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
   background-color: #262626;
-  background-size: 16px 16px;
-  color: white;
+  background-image: url("/images/bg_black_paper.png");
+  color: #e5e5e5;
   font-family: "museo-sans-1", "museo-sans-2", sans-serif;
   font-size: 16px;
   font-weight: normal;
@@ -62,7 +60,7 @@ body {
   width: 960px; }
 
 .L1 {
-  margin: 2.5em 0; }
+  margin: 3em 0; }
 
 .L2 {
   margin: 1.5em 0; }
@@ -101,6 +99,7 @@ nav {
     nav ul li {
       display: inline-block;
       float: left;
+      font-size: 110%;
       padding: 0 20px;
       text-align: right; }
       nav ul li a {
@@ -112,6 +111,8 @@ nav {
 
 .headline {
   padding-right: 220px; }
+  .headline h1 {
+    margin-bottom: 0.5em; }
   .headline p {
     font-size: 110%; }
 
@@ -128,64 +129,48 @@ img.me {
   top: 5px; }
 
 #social {
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  background: -moz-linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #404040), color-stop(100%, rgba(64, 64, 64, 0)));
-  background: -webkit-linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-  background: -o-linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-  background: -ms-linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#404040', endColorstr='#00404040',GradientType=0 );
-  background: linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-  padding: 1em;
+  background: -moz-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262626), color-stop(100%, rgba(38, 38, 38, 0)));
+  background: -webkit-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+  background: -o-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+  background: -ms-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$sb_dark_gray', endColorstr='$sb_dark_gray',GradientType=0 );
+  background: linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+  padding: 0.5em 1em;
   width: 60%; }
-  #social .social {
+  #social .network {
+    color: #0fb913;
+    display: inline-block;
+    font-size: 90%;
+    margin-left: 0.5em; }
+  #social .social_link {
+    border-radius: 18px;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
     -webkit-transition: all 250ms;
     -moz-transition: all 250ms;
     -o-transition: all 250ms;
     -ms-transition: all 250ms;
     transition: all 250ms;
+    background-color: gray;
     background-repeat: no-repeat;
-    background-position: top left;
+    background-position: 50% 50%;
     display: inline-block;
-    height: 32px;
+    height: 36px;
     margin-right: 15px;
     position: relative;
-    width: 32px; }
-    #social .social:hover {
+    width: 36px; }
+    #social .social_link:hover {
+      background-color: #0fb913;
       text-decoration: none; }
-      #social .social:hover:after {
-        -webkit-transition: all 250ms;
-        -moz-transition: all 250ms;
-        -o-transition: all 250ms;
-        -ms-transition: all 250ms;
-        transition: all 250ms;
-        color: gray;
-        content: attr(title);
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        text-align: center;
-        top: 36px; }
-    #social .social:hover:after {
-      color: #0fb913; }
   #social #twitter {
-    background-image: url("/images/icon-twitter.png"); }
-    #social #twitter:hover {
-      background-image: url("/images/icon-twitter-hover.png"); }
+    background-image: url("/images/logo-twitter.png"); }
   #social #facebook {
-    background-image: url("/images/icon-facebook.png"); }
-    #social #facebook:hover {
-      background-image: url("/images/icon-facebook-hover.png"); }
+    background-image: url("/images/logo-facebook.png"); }
   #social #linkedin {
-    background-image: url("/images/icon-linkedin.png"); }
-    #social #linkedin:hover {
-      background-image: url("/images/icon-linkedin-hover.png"); }
+    background-image: url("/images/logo-linkedin.png"); }
   #social #github {
-    background-image: url("/images/icon-github.png"); }
-    #social #github:hover {
-      background-image: url("/images/icon-github-hover.png"); }
+    background-image: url("/images/logo-github.png"); }
 
 #portfolio figure {
   -webkit-transition: all 250ms;
@@ -193,8 +178,8 @@ img.me {
   -o-transition: all 250ms;
   -ms-transition: all 250ms;
   transition: all 250ms;
-  background-color: #404040;
-  border: 5px solid #404040;
+  background-color: #262626;
+  border: 5px solid #262626;
   display: inline-block;
   height: 320px;
   margin-right: 5px;
@@ -224,13 +209,13 @@ img.me {
 #writing #tweets {
   width: 460px; }
   #writing #tweets li {
-    background: -moz-linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #404040), color-stop(100%, rgba(64, 64, 64, 0)));
-    background: -webkit-linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-    background: -o-linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-    background: -ms-linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#404040', endColorstr='#00404040',GradientType=0 );
-    background: linear-gradient(top, #404040 0%, rgba(64, 64, 64, 0) 100%);
+    background: -moz-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262626), color-stop(100%, rgba(38, 38, 38, 0)));
+    background: -webkit-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+    background: -o-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+    background: -ms-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$sb_dark_gray', endColorstr='$sb_dark_gray',GradientType=0 );
+    background: linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
     margin: 0.5em 0;
     padding: 0.5em; }
   #writing #tweets img {
@@ -246,6 +231,8 @@ img.me {
     background: black;
     padding: 5px; }
 
+#about p {
+  margin: 1.5em 0; }
 #about .L2 {
   display: inline-block;
   float: left;
@@ -255,3 +242,15 @@ img.me {
 footer {
   background: black;
   padding: 20px; }
+
+.project figure {
+  background-color: #262626;
+  border: 5px solid #262626;
+  display: inline-block;
+  margin-bottom: 1em;
+  position: relative;
+  vertical-align: top; }
+  .project figure figcaption {
+    display: block;
+    line-height: 1.2;
+    padding: 0.5em 5px; }

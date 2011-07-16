@@ -7,3 +7,9 @@ get '/' do
   @current_page = 'home'
   haml :index, :layout => :'home.layout'
 end
+
+get '/quid' do
+  @title = 'Quid'
+  @current_page = 'quid'
+  haml :quid, :layout => :'project.layout'
+end

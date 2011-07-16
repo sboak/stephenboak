@@ -13,10 +13,8 @@
   / Mobile viewport optimized: j.mp/bplateviewport
   %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
   / Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
-  %link{:rel =>"stylesheet", :href =>"/css/home.css"}
+  %link{:rel =>"stylesheet", :href =>"/css/project.css"}
   %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"}
-  %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"}
-  %script{:src => "/js/jquery.timeago.js"}
   %script{:src => "/js/home.js"}
   %script{:src => "http://use.typekit.com/val5dqm.js"}
   :javascript
@@ -26,17 +24,7 @@
   / All JavaScript at the bottom, except for Modernizr which enables HTML5 elements &amp; feature detects
   %script{:src => "/js/modernizr-DEV.js"}
 %body
-  %nav
-    %ul
-      %li
-        %a{:class=>"scroller", :href => "#"} Home
-      %li
-        %a{:class=>"scroller", :href => "#portfolio"} Portfolio
-      %li 
-        %a{:class=>"scroller", :href => "#writing"} Writing
-      %li
-        %a{:class=>"scroller", :href => "#about"} About Me
+  %a{:class=>"btn_project", :id=>"btn_back", :href => "/"} Back
+  %a{:class=>"btn_project scroller", :id=>"btn_to_top", :href => "#top"} ‹
   .container
     = yield
-  %footer
-    Footer

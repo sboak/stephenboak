@@ -1,0 +1,81 @@
+@import common
+
+h1
+  font-family: 'museo-slab-1','museo-slab-2', sans-serif
+  font-size: 175%
+  font-weight: bold
+  line-height: 1.25
+h2
+  color: gray
+  font-family: 'museo-slab-1','museo-slab-2', sans-serif
+  font-size: 150%
+  font-weight: light
+  margin-bottom: .25em
+a
+  color: $sb_green
+  text-decoration: none
+  &:hover
+    text-decoration:  underline
+
+///////////////////////////////////////////////////////////
+// HEADER /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+header
+  background-color: $sb_dark_gray
+  margin-top: 1em
+  padding: .5em 0
+  h1
+    color: gray
+    display: inline-block
+    width: 50%
+    
+    
+.btn_project
+  background-color: rgba(255,255,255, 0.1)
+  color: gray
+  font-size: 200%
+  font-weight: bold
+  height: 55px
+  line-height: 50px
+  position: fixed
+  top: 10px
+  z-index: 1
+  &:hover
+    color: $sb_green
+    text-decoration: none
+#btn_back
+  @include round(10px)
+  height: 50px
+  left: 10px
+  padding: 0 10px
+  &:before
+    content: '‹ '
+#btn_to_top
+  @include round(10px)
+  -webkit-transform: rotate(90deg)
+  -moz-transform: rotate(90deg)
+  display: none
+  right: 10px
+  text-align: center
+  width: 50px
+    
+    
+    
+
+  
+  
+///////////////////////////////////////////////////////////
+// PROJECT SECTION ////////////////////////////////////////
+///////////////////////////////////////////////////////////
+.project
+  figure
+    background-color: $sb_dark_gray
+    border: 5px solid $sb_dark_gray
+    display: inline-block
+    margin-bottom: 1em
+    position: relative
+    vertical-align: top
+    figcaption
+      display: block
+      line-height: 1.2
+      padding: .5em 5px

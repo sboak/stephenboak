@@ -1,0 +1,83 @@
+//VARS
+$sb_green: #0FB913
+$sb_dark_gray: #262626
+$container_width: 960px
+
+.clear
+  clear: both
+  float: none
+
+@mixin round($radius: 4px) 
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  
+@mixin graygrad
+  background: -moz-linear-gradient(top, rgba(38,38,38,1) 0%, rgba(38,38,38,0) 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(38,38,38,1)), color-stop(100%,rgba(38,38,38,0))) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(38,38,38,1) 0%,rgba(38,38,38,0) 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(38,38,38,1) 0%,rgba(38,38,38,0) 100%) /* Opera11.10+ */
+  background: -ms-linear-gradient(top, rgba(38,38,38,1) 0%,rgba(38,38,38,0) 100%) /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$sb_dark_gray', endColorstr='$sb_dark_gray',GradientType=0 ) /* IE6-9 */
+  background: linear-gradient(top, rgba(38,38,38,1) 0%,rgba(38,38,38,0) 100%) /* W3C */
+
+//RESET////////////////////////////////////////////////////
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+  display: block
+body
+  line-height: 1
+ol, ul
+  list-style: none
+blockquote, q
+  quotes: none
+blockquote:before, blockquote:after,
+q:before, q:after
+  content: ''
+  content: none
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+///////////////////////////////////////////////////////////
+
+body
+  background-color: #262626
+  background-image: url('/images/bg_black_paper.png')
+  //background-size: 16px 16px
+  color:  #E5E5E5
+  font-family: 'museo-sans-1','museo-sans-2', sans-serif
+  font-size: 16px
+  font-weight: normal
+  line-height: 1.5
+  text-shadow: 0 1px 0 black
+.container
+  margin: 0 auto
+  width: $container_width
+.L1
+  margin: 3em 0
+.L2
+  margin: 1.5em 0
+
+
+

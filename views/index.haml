@@ -1,25 +1,21 @@
 %img{:class=>"me", :src=>"/images/me.jpg"}
 %section{:class=>"L1 headline"}
   %h1 I'm Steve Boak, a product designer and front-end developer in San Francisco, California.
-  %p
-    I work at 
-    %a{:href => "http://www.boundary.com"} Boundary
-    designing a next-generation real-time network monitoring and operations platform.
   %section{:class=>"L2", :id=>"social"}
-    %h2 Other Places to Find Me
-    %a{:href=>"http://www.twitter.com/sboak", :class=>"social", :title=>"Twitter", :id=>"twitter"}
-    %a{:href=>"http://www.facebook.com/stephen.boak", :class=>"social", :title=>"Facebook", :id=>"facebook"}
-    %a{:href=>"http://www.linkedin.com/in/stephenboak", :class=>"social", :title=>"LinkedIn", :id=>"linkedin"}
-    %a{:href=>"https://github.com/sboak", :class=>"social", :title=>"GitHub", :id=>"github"}
+    %h2{:id=>"social_networks"} Find Me On: 
+    %a{:href=>"http://www.twitter.com/sboak", :class=>"social_link", :title=>"Twitter", :id=>"twitter"}
+    %a{:href=>"http://www.facebook.com/stephen.boak", :class=>"social_link", :title=>"Facebook", :id=>"facebook"}
+    %a{:href=>"http://www.linkedin.com/in/stephenboak", :class=>"social_link", :title=>"LinkedIn", :id=>"linkedin"}
+    %a{:href=>"https://github.com/sboak", :class=>"social_link", :title=>"GitHub", :id=>"github"}
 %section{:class=>"L1", :id=>"portfolio"}
   %h1 Portfolio
   %section{:class=>"L2", :id=>"web"}
     %h2 Web
     %figure
-      %a{:href=>"#"}
+      %a{:href=>"/quid"}
         %img{:src=>"/images/thumb-quid.jpg", :alt=>"Quid Project Thumbnail", :title=>"View Project"}
       %figcaption
-        %span.name Quid | Pro
+        %span.name Quid
         %span.desc Web application tracking the performance of private technology companies and allowing users to explore new and emerging companies and spaces.
     %figure
       %a{:href=>"#"}
@@ -85,6 +81,10 @@
   .clear
 %section{:class=>"L1", :id=>"about"}
   %h1 About Me
+  %p
+    I work at 
+    %a{:href => "http://www.boundary.com"} Boundary
+    designing a next-generation real-time network monitoring and operations platform.
   %section{:class=>"L2", :id=>"skills_current"}
     %h2 Skills that I actively use
     %ul
