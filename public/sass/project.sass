@@ -17,23 +17,49 @@ a
   &:hover
     text-decoration:  underline
 
+
 ///////////////////////////////////////////////////////////
 // HEADER /////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 header
   background-color: $sb_dark_gray
   margin-top: 1em
-  padding: .5em 0
+  width: 100%
   h1
     color: gray
     display: inline-block
+    padding: .5em
     width: 50%
-    
-    
+
+
+///////////////////////////////////////////////////////////
+// PROJECT SECTION ////////////////////////////////////////
+///////////////////////////////////////////////////////////
+.project
+  figure
+    background-color: $sb_dark_gray
+    //border: 5px solid $sb_dark_gray
+    display: inline-block
+    margin-bottom: 1em
+    padding: 10px 0
+    position: relative
+    vertical-align: top
+    text-align: center
+    width: 100%
+    figcaption
+      display: block
+      line-height: 1.2
+      padding: 10px
+      text-align: left
+
+
+///////////////////////////////////////////////////////////
+// BUTTONS ////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 .btn_project
-  background-color: rgba(255,255,255, 0.1)
+  @include round(5px)
   color: gray
-  font-size: 200%
+  font-size: 150%
   font-weight: bold
   height: 55px
   line-height: 50px
@@ -44,38 +70,31 @@ header
     color: $sb_green
     text-decoration: none
 #btn_back
-  @include round(10px)
+  background: rgb(63,63,63) /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(63,63,63,1) 0%, rgba(38,38,38,1) 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(63,63,63,1)), color-stop(100%,rgba(38,38,38,1))) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(63,63,63,1) 0%,rgba(38,38,38,1) 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(63,63,63,1) 0%,rgba(38,38,38,1) 100%) /* Opera11.10+ */
+  background: -ms-linear-gradient(top, rgba(63,63,63,1) 0%,rgba(38,38,38,1) 100%) /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f3f3f', endColorstr='#262626',GradientType=0 ) /* IE6-9 */
+  background: linear-gradient(top, rgba(63,63,63,1) 0%,rgba(38,38,38,1) 100%) /* W3C */
   height: 50px
   left: 10px
   padding: 0 10px
   &:before
     content: '‹ '
 #btn_to_top
-  @include round(10px)
+  background: rgb(63,63,63) /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(63,63,63,1) 0%, rgba(38,38,38,1) 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(63,63,63,1)), color-stop(100%,rgba(38,38,38,1))) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(63,63,63,1) 0%,rgba(38,38,38,1) 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(63,63,63,1) 0%,rgba(38,38,38,1) 100%) /* Opera11.10+ */
+  background: -ms-linear-gradient(left, rgba(63,63,63,1) 0%,rgba(38,38,38,1) 100%) /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f3f3f', endColorstr='#262626',GradientType=1 ) /* IE6-9 */
+  background: linear-gradient(left, rgba(63,63,63,1) 0%,rgba(38,38,38,1) 100%) /* W3C */
   -webkit-transform: rotate(90deg)
   -moz-transform: rotate(90deg)
   display: none
   right: 10px
   text-align: center
   width: 50px
-    
-    
-    
-
-  
-  
-///////////////////////////////////////////////////////////
-// PROJECT SECTION ////////////////////////////////////////
-///////////////////////////////////////////////////////////
-.project
-  figure
-    background-color: $sb_dark_gray
-    border: 5px solid $sb_dark_gray
-    display: inline-block
-    margin-bottom: 1em
-    position: relative
-    vertical-align: top
-    figcaption
-      display: block
-      line-height: 1.2
-      padding: .5em 5px

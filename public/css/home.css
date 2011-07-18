@@ -95,6 +95,7 @@ nav {
   width: 960px; }
   nav ul {
     float: right;
+    font-family: "museo-slab-1", "museo-slab-2", sans-serif;
     list-style: none; }
     nav ul li {
       display: inline-block;
@@ -137,6 +138,7 @@ img.me {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$sb_dark_gray', endColorstr='$sb_dark_gray',GradientType=0 );
   background: linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
   padding: 0.5em 1em;
+  margin: 3em 0;
   width: 60%; }
   #social .network {
     color: #0fb913;

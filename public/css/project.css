@@ -87,16 +87,34 @@ a {
 header {
   background-color: #262626;
   margin-top: 1em;
-  padding: 0.5em 0; }
+  width: 100%; }
   header h1 {
     color: gray;
     display: inline-block;
+    padding: 0.5em;
     width: 50%; }
 
+.project figure {
+  background-color: #262626;
+  display: inline-block;
+  margin-bottom: 1em;
+  padding: 10px 0;
+  position: relative;
+  vertical-align: top;
+  text-align: center;
+  width: 100%; }
+  .project figure figcaption {
+    display: block;
+    line-height: 1.2;
+    padding: 10px;
+    text-align: left; }
+
 .btn_project {
-  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   color: gray;
-  font-size: 200%;
+  font-size: 150%;
   font-weight: bold;
   height: 55px;
   line-height: 50px;
@@ -108,9 +126,14 @@ header {
     text-decoration: none; }
 
 #btn_back {
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  background: #3f3f3f;
+  background: -moz-linear-gradient(top, #3f3f3f 0%, #262626 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3f3f3f), color-stop(100%, #262626));
+  background: -webkit-linear-gradient(top, #3f3f3f 0%, #262626 100%);
+  background: -o-linear-gradient(top, #3f3f3f 0%, #262626 100%);
+  background: -ms-linear-gradient(top, #3f3f3f 0%, #262626 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3f3f', endColorstr='#262626',GradientType=0 );
+  background: linear-gradient(top, #3f3f3f 0%, #262626 100%);
   height: 50px;
   left: 10px;
   padding: 0 10px; }
@@ -118,24 +141,17 @@ header {
     content: "‹ "; }
 
 #btn_to_top {
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  background: #3f3f3f;
+  background: -moz-linear-gradient(left, #3f3f3f 0%, #262626 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #3f3f3f), color-stop(100%, #262626));
+  background: -webkit-linear-gradient(left, #3f3f3f 0%, #262626 100%);
+  background: -o-linear-gradient(left, #3f3f3f 0%, #262626 100%);
+  background: -ms-linear-gradient(left, #3f3f3f 0%, #262626 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3f3f', endColorstr='#262626',GradientType=1 );
+  background: linear-gradient(left, #3f3f3f 0%, #262626 100%);
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   display: none;
   right: 10px;
   text-align: center;
   width: 50px; }
-
-.project figure {
-  background-color: #262626;
-  border: 5px solid #262626;
-  display: inline-block;
-  margin-bottom: 1em;
-  position: relative;
-  vertical-align: top; }
-  .project figure figcaption {
-    display: block;
-    line-height: 1.2;
-    padding: 0.5em 5px; }
