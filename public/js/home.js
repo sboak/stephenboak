@@ -4,6 +4,14 @@ var count = 5;
 $(document).ready(function()
 {
   
+  //PROJECT DIALOG BOX
+  /*
+  $('.project_dialog').dialog({ autoOpen: false, dialogClass: 'alert', draggable: false, height: 650, hide: 'fade', modal: true, resizable: false, show: 'fade', title: "Project",width: 960 });
+  
+  $("#modal_test").click(function(){
+    $(".project_dialog").dialog("open");
+  });
+  */
   $('.scroller').click(function(event) {
     //prevent the default action for the click event
     event.preventDefault();

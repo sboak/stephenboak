@@ -79,11 +79,11 @@ img.me
     margin-left: .5em
   .social_link
     @include round(18px)
-    -webkit-transition: all 250ms
-    -moz-transition: all 250ms
-    -o-transition: all 250ms
-    -ms-transition: all 250ms
-    transition: all 250ms
+    -webkit-transition: background-color 250ms
+    -moz-transition: background-color 250ms
+    -o-transition: background-color 250ms
+    -ms-transition: background-color 250ms
+    transition: background-color 250ms
     background-color: gray
     background-repeat: no-repeat
     background-position: 50% 50%
@@ -109,16 +109,24 @@ img.me
 // PORTFOLIO SECTION //////////////////////////////////////
 ///////////////////////////////////////////////////////////
 #portfolio
+  .current
+    height: 200px
+    width: 940px
+    margin-bottom: 5px
+    img
+      height: 140px
+      width: 940px
   figure
-    -webkit-transition: all 250ms
-    -moz-transition: all 250ms
-    -o-transition: all 250ms
-    -ms-transition: all 250ms
-    transition: all 250ms
+    -webkit-transition: border 250ms
+    -moz-transition: border 250ms
+    -o-transition: border 250ms
+    -ms-transition: border 250ms
+    transition: border 250ms
     background-color: $sb_dark_gray
     border: 5px solid $sb_dark_gray
     display: inline-block
     height: 320px
+    margin-bottom: 5px
     margin-right: 5px
     position: relative
     vertical-align: top
@@ -129,7 +137,7 @@ img.me
       height: 200px
       width: 300px
     .name
-      color: #CCC
+      color: gray
       line-height: 1.2
       padding: 3px 5px
     .desc

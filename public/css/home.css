@@ -149,11 +149,11 @@ img.me {
     border-radius: 18px;
     -moz-border-radius: 18px;
     -webkit-border-radius: 18px;
-    -webkit-transition: all 250ms;
-    -moz-transition: all 250ms;
-    -o-transition: all 250ms;
-    -ms-transition: all 250ms;
-    transition: all 250ms;
+    -webkit-transition: background-color 250ms;
+    -moz-transition: background-color 250ms;
+    -o-transition: background-color 250ms;
+    -ms-transition: background-color 250ms;
+    transition: background-color 250ms;
     background-color: gray;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -174,16 +174,24 @@ img.me {
   #social #github {
     background-image: url("/images/logo-github.png"); }
 
+#portfolio .current {
+  height: 200px;
+  width: 940px;
+  margin-bottom: 5px; }
+  #portfolio .current img {
+    height: 140px;
+    width: 940px; }
 #portfolio figure {
-  -webkit-transition: all 250ms;
-  -moz-transition: all 250ms;
-  -o-transition: all 250ms;
-  -ms-transition: all 250ms;
-  transition: all 250ms;
+  -webkit-transition: border 250ms;
+  -moz-transition: border 250ms;
+  -o-transition: border 250ms;
+  -ms-transition: border 250ms;
+  transition: border 250ms;
   background-color: #262626;
   border: 5px solid #262626;
   display: inline-block;
   height: 320px;
+  margin-bottom: 5px;
   margin-right: 5px;
   position: relative;
   vertical-align: top;
@@ -194,7 +202,7 @@ img.me {
     height: 200px;
     width: 300px; }
   #portfolio figure .name {
-    color: #cccccc;
+    color: gray;
     line-height: 1.2;
     padding: 3px 5px; }
   #portfolio figure .desc {
