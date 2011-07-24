@@ -13,11 +13,12 @@
   / Mobile viewport optimized: j.mp/bplateviewport
   %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
   / Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
-  %link{:rel =>"stylesheet", :href =>"/css/home.css"}
   %link{:rel =>"stylesheet", :href =>"/css/custom-theme/jquery-ui-1.8.14.custom.css"}
+  %link{:rel =>"stylesheet", :href =>"/css/home.css"}
   %script{:src => "/js/jquery-1.6.2.min.js"}
   %script{:src => "/js/jquery-ui-1.8.14.custom.min.js"}
   %script{:src => "/js/jquery.timeago.js"}
+  %script{:src => "/js/d3.js"}
   %script{:src => "/js/home.js"}
   %script{:src => "http://use.typekit.com/val5dqm.js"}
   :javascript
@@ -41,3 +42,4 @@
     = yield
   %footer
     Footer
+  %script{:src => "/js/charts.js"}

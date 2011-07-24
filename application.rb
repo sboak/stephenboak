@@ -1,63 +1,87 @@
 require 'rubygems'  
 require 'sinatra'
-require 'haml' 
+require 'haml'
+
+class Project
+  def initialize(name, code, type, desc, banner)
+    @name=name
+    @code=code
+    @desc=desc
+    @type=type
+    @banner=banner
+  end
+  
+  def get_name
+    @name
+  end
+  
+  def get_code
+    @code
+  end
+  
+  def get_desc
+    @desc
+  end
+  
+  def get_type
+    @type
+  end
+  
+  def get_banner
+    @banner
+  end
+end
   
 get '/' do
+  @projects = [
+    Project.new("Boundary", "boundary", "web", "Tools to visualize, explore, and troubleshoot network performance with no hardware to install.", true),
+    Project.new("Quid", "quid", "web", "Web application tracking the performance of private technology companies and allowing users to explore new and emerging companies and spaces.", false),
+    Project.new("World Bank RAF", "raf", "web", "Tool for evaluating energy efficiency opportunities in developing cities by comparing key performance indicators against similar cities.", false),
+    Project.new("Riyadh Region Dashboard","riyadh", "web", "Dashboard for government officials to monitor progress and spending on urban development projects around the Riyadh region.", false),
+    Project.new("Dragonfly","dragonfly", "architecture", "Temporary installation at SCIArc inspired by the wing of a dragonfly, hand-made by students. Over 2,000lb of aluminum, attached at only 3 points in the room.", false),
+    Project.new("Helios House","helios", "architecture", "Sustainable gas station in Los Angeles featuring solar power, a 100%-recycled steel canopy, rainwater collection, green roof, and LED lighting.", false),
+    Project.new("The Beekman Tower","beekman", "architecture", "Frank Gehry-designed high-rise in NYC featuring a doubly-curved two-layer curtain wall which I optimized for construction.", false),
+    Project.new("Diabetic Foot Research","foot", "other", "Worked with the orthotics & prosthetics department to design an insole that significantly reduced ulceration in diabetic patients.", false),
+    Project.new("Double-Vision Test","doublevision", "other", "Designed in 2003, partnership with a local ophthalmologist to replace the rudimentary paper test with a digital version. Awarded a provisional patent.", false),
+    Project.new("Homemade iPod Case","ipod", "other", "Student project to build an iPod case out of acrylic on a 2.5-axis CNC mill. Wrote all the machine code and made dozens of prototypes.", false)
+    ]
   @title = 'Home'
   @current_page = 'home'
   haml :index, :layout => :'home.layout'
 end
 
 get '/beekman' do
-  @title = 'The Beekman Tower'
-  @current_page = 'beekman'
-  haml :beekman, :layout => :'project.layout'
+  haml :beekman
 end
 
 get '/doublevision' do
-  @title = 'Computerized Double Vision Test'
-  @current_page = 'doublevision'
-  haml :doublevision, :layout => :'project.layout'
+  haml :doublevision
 end
 
 get '/dragonfly' do
-  @title = 'Dragonfly'
-  @current_page = 'dragonfly'
-  haml :dragonfly, :layout => :'project.layout'
+  haml :dragonfly
 end
 
 get '/foot' do
-  @title = 'Diabetic Foot Research'
-  @current_page = 'foot'
-  haml :foot, :layout => :'project.layout'
+  haml :foot
 end
 
 get '/helios' do
-  @title = 'Helios House'
-  @current_page = 'helios'
-  haml :helios, :layout => :'project.layout'
+  haml :helios
 end
 
 get '/ipod' do
-  @title = 'Home-made iPod Case'
-  @current_page = 'ipod'
-  haml :ipod, :layout => :'project.layout'
+  haml :ipod
 end
 
 get '/quid' do
-  @title = 'Quid'
-  @current_page = 'quid'
-  haml :quid, :layout => :'project.layout'
+  haml :quid
 end
 
 get '/raf' do
-  @title = 'World Bank RAF'
-  @current_page = 'raf'
-  haml :raf, :layout => :'project.layout'
+  haml :raf
 end
 
 get '/riyadh' do
-  @title = 'Riyadh Region Project Dashboard'
-  @current_page = 'riyadh'
-  haml :riyadh, :layout => :'project.layout'
+  haml :riyadh
 end

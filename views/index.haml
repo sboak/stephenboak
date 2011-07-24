@@ -1,89 +1,62 @@
 %img{:class=>"me", :src=>"/images/me.jpg"}
+
 %section{:class=>"L1 headline"}
-  %h1 I'm Steve Boak, a product designer and front-end developer in San Francisco, California.
+  %h1 I'm Steve Boak, a product designer, product manager, and front-end developer in San Francisco, California.
+  
   %section{:class=>"L2", :id=>"social"}
     %h2{:id=>"social_networks"} Find Me On: 
-    %a{:href=>"http://www.twitter.com/sboak", :class=>"social_link", :title=>"Twitter", :id=>"twitter"}
-    %a{:href=>"http://www.facebook.com/stephen.boak", :class=>"social_link", :title=>"Facebook", :id=>"facebook"}
-    %a{:href=>"http://www.linkedin.com/in/stephenboak", :class=>"social_link", :title=>"LinkedIn", :id=>"linkedin"}
-    %a{:href=>"https://github.com/sboak", :class=>"social_link", :title=>"GitHub", :id=>"github"}
-%section{:class=>"L1", :id=>"portfolio"}
+    %a{:href=>"http://www.twitter.com/sboak", :class=>"social_link", :title=>"Twitter", :id=>"twitter", :target=>"_blank"}
+    %a{:href=>"http://www.facebook.com/stephen.boak", :class=>"social_link", :title=>"Facebook", :id=>"facebook", :target=>"_blank"}
+    %a{:href=>"http://www.linkedin.com/in/stephenboak", :class=>"social_link", :title=>"LinkedIn", :id=>"linkedin", :target=>"_blank"}
+    %a{:href=>"https://github.com/sboak", :class=>"social_link", :title=>"GitHub", :id=>"github", :target=>"_blank"}
 
+%section{:class=>"L1", :id=>"portfolio"}
   %h1 Portfolio
-  %a{:id=>"modal_test"} TEST
   
   %section{:class=>"L2", :id=>"web"}
     %h2 Web
-    %div{:class=>"ui-overlay"}
-      %div{:class=>"ui-widget-overlay", :style=>"position: fixed; z-index: 2;"}
-      %div{:class=>"ui-widget-shadow ui-corner-all", :style=>"width: 982px; height: 622px; position: fixed; left: 50%; margin-left: -502px; top: 30px; z-index: 2;"}
-    %div{:class=>"ui-widget ui-widget-content ui-corner-all", :style=>"position: fixed; width: 960px; height: 600px; left: 50%; margin-left: -495px; top: 30px; padding: 10px;  z-index: 3;"} Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-    %figure{:class=>"current"}
-      %a{:href=>"/boundary"}
-        %img{:src=>"/images/thumb-boundary.png", :alt=>"Boundary Thumbnail", :title=>"View Project"}
-      %figcaption
-        %span.name Boundary
-        %span.desc Tools to visualize, explore, and troubleshoot network performance with no hardware to install.
-    %figure
-      %a{:href=>"/quid"}
-        %img{:src=>"/images/thumb-quid.jpg", :alt=>"Quid Project Thumbnail", :title=>"View Project"}
-      %figcaption
-        %span.name Quid
-        %span.desc Web application tracking the performance of private technology companies and allowing users to explore new and emerging companies and spaces.
-    %figure
-      %a{:href=>"/raf"}
-        %img{:src=>"/images/thumb-raf.jpg", :alt=>"World Bank RAF Project Thumbnail", :title=>"View Project"}
-      %figcaption
-        %span.name World Bank RAF
-        %span.desc Tool for evaluating energy efficiency opportunities in developing cities by comparing key performance indicators against similar cities.
-    %figure
-      %a{:href=>"/riyadh"}
-        %img{:src=>"/images/thumb-riyadh.jpg", :alt=>"Riyadh Region Dashboard Project Thumbnail", :title=>"View Project"}
-      %figcaption
-        %span.name Riyadh Region Dashboard
-        %span.desc Dashboard for government officials to monitor progress and spending on urban development projects around the Riyadh region.
-        
+    -@projects.each do |project|
+      -if project.get_type == "web"
+        %figure{:class=> project.get_banner ? "banner" : "thumb" }
+          %a{:id=>"a_#{project.get_code}", :href=> project.get_banner ? "http://www.boundary.com" : nil }
+            %img{:src=>"/images/thumb-#{project.get_code}.jpg", :alt=>"#{project.get_name} thumbnail"}
+          %figcaption
+            %span.name=project.get_name
+            %span.desc=project.get_desc
+        %div{:class=>"overlay-container", :id=>"overlay_#{project.get_code}"}
+          %div{:class=>"ui-widget-overlay"}
+          %div{:class=>"ui-widget-shadow ui-corner-all"}
+          %div{:class=>"ui-widget ui-widget-content ui-corner-all", :id=>"content_#{project.get_code}"}
+
   %section{:class=>"L2", :id=>"architecture"}
     %h2 Architecture
-    %figure
-      %a{:href=>"/dragonfly"}
-        %img{:src=>"/images/thumb-dragonfly.jpg", :alt=>"Dragonfly Project Thumbnail"}
-      %figcaption
-        %span.name Dragonfly
-        %span.desc Temporary installation at SCIArc inspired by the wing of a dragonfly, hand-made by students. Over 2,000lb of aluminum, attached at only 3 points in the room.
-    %figure
-      %a{:href=>"/helios"}
-        %img{:src=>"/images/thumb-helios.jpg", :alt=>"Helios House Project Thumbnail"}
-      %figcaption
-        %span.name Helios House
-        %span.desc Sustainable gas station in Los Angeles featuring solar power, a 100%-recycled steel canopy, rainwater collection, green roof, and LED lighting.
-    %figure
-      %a{:href=>"/beekman"}
-        %img{:src=>"/images/thumb-beekman.jpg", :alt=>"Beekman Tower Project Thumbnail"}
-      %figcaption
-        %span.name Beekman Tower
-        %span.desc Frank Gehry-designed high-rise in NYC featuring a doubly-curved two-layer curtain wall which I optimized for construction.
+    -@projects.each do |project|
+      -if project.get_type == "architecture"
+        %figure{:class=>"thumb"}
+          %a{:id=>"a_#{project.get_code}"}
+            %img{:src=>"/images/thumb-#{project.get_code}.jpg", :alt=>"#{project.get_name} thumbnail"}
+          %figcaption
+            %span.name=project.get_name
+            %span.desc=project.get_desc
+        %div{:class=>"overlay-container", :id=>"overlay_#{project.get_code}"}
+          %div{:class=>"ui-widget-overlay"}
+          %div{:class=>"ui-widget-shadow ui-corner-all"}
+          %div{:class=>"ui-widget ui-widget-content ui-corner-all", :id=>"content_#{project.get_code}"}
         
   %section{:class=>"L2", :id=>"other"}
     %h2 Other
-    %figure
-      %a{:href=>"/foot"}
-        %img{:src=>"/images/thumb-foot.jpg", :alt=>"Diabetic Foot Research Project Thumbnail"}
-      %figcaption
-        %span.name Diabetic Foot Research
-        %span.desc Worked with the orthotics & prosthetics department to design an insole that significantly reduced ulceration in diabetic patients.
-    %figure
-      %a{:href=>"/doublevision"}
-        %img{:src=>"/images/thumb-doublevision.png", :alt=>"Double Vision Test Project Thumbnail"}
-      %figcaption
-        %span.name Double-Vision Test
-        %span.desc Designed in 2003, partnership with a local ophthalmologist to replace the rudimentary paper test with a digital version. Awarded a provisional patent.
-    %figure
-      %a{:href=>"/ipod"}
-        %img{:src=>"/images/thumb-ipod.jpg", :alt=>"Homemade iPod Case Project Thumbnail"}
-      %figcaption
-        %span.name Homemade iPod Case
-        %span.desc Student project to build an iPod case out of acrylic on a 2.5-axis CNC mill. Wrote all the machine code and made dozens of prototypes.
+    -@projects.each do |project|
+      -if project.get_type == "other"
+        %figure{:class=>"thumb"}
+          %a{:id=>"a_#{project.get_code}"}
+            %img{:src=>"/images/thumb-#{project.get_code}.jpg", :alt=>"#{project.get_name} thumbnail"}
+          %figcaption
+            %span.name=project.get_name
+            %span.desc=project.get_desc
+        %div{:class=>"overlay-container", :id=>"overlay_#{project.get_code}"}
+          %div{:class=>"ui-widget-overlay"}
+          %div{:class=>"ui-widget-shadow ui-corner-all"}
+          %div{:class=>"ui-widget ui-widget-content ui-corner-all", :id=>"content_#{project.get_code}"}
     
 %section{:class=>"L1", :id=>"writing"}
   %h1 Writing
@@ -99,38 +72,11 @@
   %p
     I work at 
     %a{:href => "http://www.boundary.com"} Boundary
-    designing a next-generation real-time network monitoring and operations platform.
+    designing a next-generation real-time network monitoring and operations platform. Interests: Data Visualization, Interaction Design, Prototyping, Information Architecture
   %section{:class=>"L2", :id=>"skills_current"}
-    %h2 Skills that I actively use
-    %ul
-      %li
-        HTML5 | HAML | ERB
-      %li
-        CSS | Sass | Frameworks (960, blueprint)
-      %li
-        Graphic Design and Layout (Photoshop, Illustrator, InDesign)
-      %li
-        Javascript | Jquery
-      %li
-        D3        
-      %li
-        Ruby | Sinatra | Rails
-      %li
-        MySQL
+    %h2 Skills I actively use
+    %div{:id=>"current_chart"}
   %section{:class=>"L2", :id=>"skills_past"}
     %h2 Skills from the past
-    %ul
-      %li
-        Parametric modeling / CATIA / Revit
-      %li
-        GIS (Google Earth, ArcGIS)
-      %li
-        CNC Machining / gcode
-  %section{:class=>"L2", :id=>"interests"}
-    %h2 Interests
-    %ul
-      %li Data Visualization
-      %li Interaction Design
-      %li Prototyping
-      %li Information Architecture
+    %div{:id=>"past_chart"}
   .clear

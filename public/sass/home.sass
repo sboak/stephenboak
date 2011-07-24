@@ -15,6 +15,7 @@ a
   color: $sb_green
   text-decoration: none
   &:hover
+    cursor: pointer
     text-decoration:  underline
 
 ///////////////////////////////////////////////////////////
@@ -109,33 +110,7 @@ img.me
 // PORTFOLIO SECTION //////////////////////////////////////
 ///////////////////////////////////////////////////////////
 #portfolio
-  .current
-    height: 200px
-    width: 940px
-    margin-bottom: 5px
-    img
-      height: 140px
-      width: 940px
   figure
-    -webkit-transition: border 250ms
-    -moz-transition: border 250ms
-    -o-transition: border 250ms
-    -ms-transition: border 250ms
-    transition: border 250ms
-    background-color: $sb_dark_gray
-    border: 5px solid $sb_dark_gray
-    display: inline-block
-    height: 320px
-    margin-bottom: 5px
-    margin-right: 5px
-    position: relative
-    vertical-align: top
-    width: 300px
-    &:hover
-      border-color: $sb_green
-    img
-      height: 200px
-      width: 300px
     .name
       color: gray
       line-height: 1.2
@@ -145,20 +120,72 @@ img.me
       font-size: 90%
       line-height: 1.2
       padding: 3px 5px
-//  h2
-//    background-color: gray
-//    color: white
-//    display: inline-block
-//    height: 200px
-//    line-height: 200px
-//    margin-right: 5px
-//    padding: 5px
-//    overflow: hidden
-//    text-align: center
-//    vertical-align: top
-//    width: 300px
-//    &:after
-//      content: " ›"
+  .banner
+    -webkit-transition: border 250ms
+    -moz-transition: border 250ms
+    -o-transition: border 250ms
+    -ms-transition: border 250ms
+    transition: border 250ms
+    background-color: $sb_dark_gray
+    border: 5px solid $sb_dark_gray
+    display: inline-block
+    height: 200px
+    width: 940px
+    margin-bottom: 10px
+    &:hover
+      border-color: $sb_green
+    a
+      img
+        height: 140px
+        width: 940px
+  .thumb
+    -webkit-transition: border 250ms
+    -moz-transition: border 250ms
+    -o-transition: border 250ms
+    -ms-transition: border 250ms
+    transition: border 250ms
+    background-color: $sb_dark_gray
+    border: 5px solid $sb_dark_gray
+    display: inline-block
+    height: 320px
+    margin-bottom: 10px
+    margin-right: 5px
+    vertical-align: top
+    width: 300px
+    &:hover
+      border-color: $sb_green
+    a
+      img
+        height: 200px
+        width: 300px
+      
+  .project
+    padding: 70px 20px 20px 20px
+    h1
+      background-color: #444
+      color: white
+      font-size: 125%
+      font-weight: normal
+      padding: 10px
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      text-align: center
+    figure
+      background-color: $sb_dark_gray
+      display: inline-block
+      margin-bottom: 1em
+      padding: 0 0 10px 0
+      position: relative
+      vertical-align: top
+      text-align: center
+      width: 100%
+      figcaption
+        display: block
+        line-height: 1.4
+        padding: 10px
+        text-align: left
       
 ///////////////////////////////////////////////////////////
 // WRITING SECTION ////////////////////////////////////////
@@ -185,31 +212,95 @@ img.me
       @include round
       background: black
       padding: 5px
+      
+///////////////////////////////////////////////////////////
+// ABOUT ME SECTION ///////////////////////////////////////
+///////////////////////////////////////////////////////////
 #about
+  h2
+    margin-bottom: .5em
+  #current_chart, #past_chart
+    display: block
+    height: 230px
+    overflow: visible
+    width: 430px
+    svg
+      overflow: visible
+      .labels
+        fill: white
+        text-anchor: end
+      .rules
+        fill: gray
+        font-size: 13px
+        text-anchor: middle
+      .bubble
+        font-size: 12px
+        rect
+          fill: gray
+          width: 200px
+        text
+          fill: white
+          white-space: pre
+  #current_chart
+    .bars
+      fill: $sb_green
+      &:hover
+        cursor: pointer
+  #past_chart
+    .bars
+      fill: steelblue
+      &:hover
+        cursor: pointer
   p
     margin: 1.5em 0
   .L2
     display: inline-block
     float: left
     margin-right: 15px
-    width: 300px
+    width: 460px
 footer
   background: black
   padding: 20px
-  
-  
+
+
 ///////////////////////////////////////////////////////////
-// PROJECT SECTION ////////////////////////////////////////
+// JQUERY OVERLAYS ////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-.project
-  figure
-    background-color: $sb_dark_gray
-    border: 5px solid $sb_dark_gray
-    display: inline-block
-    margin-bottom: 1em
-    position: relative
-    vertical-align: top
-    figcaption
-      display: block
-      line-height: 1.2
-      padding: .5em 5px
+
+.overlay-container
+  display: none
+  height: 100%
+  position: fixed
+  width: 100%
+.ui-widget-overlay
+  height: 100%
+  position: fixed !important
+  width: 100%
+  z-index: 2
+.ui-widget-shadow
+  bottom: 40px
+  left: 50%
+  margin: 0 0 0 -510px !important
+  padding: 0 !important
+  position: fixed !important
+  top: 40px
+  width: 1021px
+  z-index: 2
+.ui-widget-content
+  background: #111111
+  bottom: 50px
+  left: 50%
+  margin-left: -500px
+  overflow-x: hidden
+  overflow-y: scroll
+  padding: 0
+  position: fixed !important
+  top: 50px
+  width: 1000px
+  z-index: 3
+
+
+
+
+
+

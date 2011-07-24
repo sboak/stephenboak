@@ -82,6 +82,7 @@ a {
   color: #0fb913;
   text-decoration: none; }
   a:hover {
+    cursor: pointer;
     text-decoration: underline; }
 
 nav {
@@ -174,14 +175,33 @@ img.me {
   #social #github {
     background-image: url("/images/logo-github.png"); }
 
-#portfolio .current {
+#portfolio figure .name {
+  color: gray;
+  line-height: 1.2;
+  padding: 3px 5px; }
+#portfolio figure .desc {
+  display: block;
+  font-size: 90%;
+  line-height: 1.2;
+  padding: 3px 5px; }
+#portfolio .banner {
+  -webkit-transition: border 250ms;
+  -moz-transition: border 250ms;
+  -o-transition: border 250ms;
+  -ms-transition: border 250ms;
+  transition: border 250ms;
+  background-color: #262626;
+  border: 5px solid #262626;
+  display: inline-block;
   height: 200px;
   width: 940px;
-  margin-bottom: 5px; }
-  #portfolio .current img {
+  margin-bottom: 10px; }
+  #portfolio .banner:hover {
+    border-color: #0fb913; }
+  #portfolio .banner a img {
     height: 140px;
     width: 940px; }
-#portfolio figure {
+#portfolio .thumb {
   -webkit-transition: border 250ms;
   -moz-transition: border 250ms;
   -o-transition: border 250ms;
@@ -191,25 +211,42 @@ img.me {
   border: 5px solid #262626;
   display: inline-block;
   height: 320px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-right: 5px;
-  position: relative;
   vertical-align: top;
   width: 300px; }
-  #portfolio figure:hover {
+  #portfolio .thumb:hover {
     border-color: #0fb913; }
-  #portfolio figure img {
+  #portfolio .thumb a img {
     height: 200px;
     width: 300px; }
-  #portfolio figure .name {
-    color: gray;
-    line-height: 1.2;
-    padding: 3px 5px; }
-  #portfolio figure .desc {
-    display: block;
-    font-size: 90%;
-    line-height: 1.2;
-    padding: 3px 5px; }
+#portfolio .project {
+  padding: 70px 20px 20px 20px; }
+  #portfolio .project h1 {
+    background-color: #444444;
+    color: white;
+    font-size: 125%;
+    font-weight: normal;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center; }
+  #portfolio .project figure {
+    background-color: #262626;
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: 0 0 10px 0;
+    position: relative;
+    vertical-align: top;
+    text-align: center;
+    width: 100%; }
+    #portfolio .project figure figcaption {
+      display: block;
+      line-height: 1.4;
+      padding: 10px;
+      text-align: left; }
 
 #writing .L2 {
   display: inline-block;
@@ -241,26 +278,81 @@ img.me {
     background: black;
     padding: 5px; }
 
+#about h2 {
+  margin-bottom: 0.5em; }
+#about #current_chart, #about #past_chart {
+  display: block;
+  height: 230px;
+  overflow: visible;
+  width: 430px; }
+  #about #current_chart svg, #about #past_chart svg {
+    overflow: visible; }
+    #about #current_chart svg .labels, #about #past_chart svg .labels {
+      fill: white;
+      text-anchor: end; }
+    #about #current_chart svg .rules, #about #past_chart svg .rules {
+      fill: gray;
+      font-size: 13px;
+      text-anchor: middle; }
+    #about #current_chart svg .bubble, #about #past_chart svg .bubble {
+      font-size: 12px; }
+      #about #current_chart svg .bubble rect, #about #past_chart svg .bubble rect {
+        fill: gray;
+        width: 200px; }
+      #about #current_chart svg .bubble text, #about #past_chart svg .bubble text {
+        fill: white;
+        white-space: pre; }
+#about #current_chart .bars {
+  fill: #0fb913; }
+  #about #current_chart .bars:hover {
+    cursor: pointer; }
+#about #past_chart .bars {
+  fill: steelblue; }
+  #about #past_chart .bars:hover {
+    cursor: pointer; }
 #about p {
   margin: 1.5em 0; }
 #about .L2 {
   display: inline-block;
   float: left;
   margin-right: 15px;
-  width: 300px; }
+  width: 460px; }
 
 footer {
   background: black;
   padding: 20px; }
 
-.project figure {
-  background-color: #262626;
-  border: 5px solid #262626;
-  display: inline-block;
-  margin-bottom: 1em;
-  position: relative;
-  vertical-align: top; }
-  .project figure figcaption {
-    display: block;
-    line-height: 1.2;
-    padding: 0.5em 5px; }
+.overlay-container {
+  display: none;
+  height: 100%;
+  position: fixed;
+  width: 100%; }
+
+.ui-widget-overlay {
+  height: 100%;
+  position: fixed !important;
+  width: 100%;
+  z-index: 2; }
+
+.ui-widget-shadow {
+  bottom: 40px;
+  left: 50%;
+  margin: 0 0 0 -510px !important;
+  padding: 0 !important;
+  position: fixed !important;
+  top: 40px;
+  width: 1021px;
+  z-index: 2; }
+
+.ui-widget-content {
+  background: #111111;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0;
+  position: fixed !important;
+  top: 50px;
+  width: 1000px;
+  z-index: 3; }
