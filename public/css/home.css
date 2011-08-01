@@ -122,9 +122,9 @@ nav {
 img.me {
   -webkit-transform: rotate(5deg);
   -moz-transform: rotate(5deg);
-  -webkit-box-shadow: 0 2px 5px #262626;
-  -moz-box-shadow: 0 2px 5px #262626;
-  box-shadow: 0 2px 5px #262626;
+  -webkit-box-shadow: 0 1px 3px #262626;
+  -moz-box-shadow: 0 1px 3px #262626;
+  box-shadow: 0 1px 3px #262626;
   border: 5px solid white;
   float: right;
   position: relative;
@@ -135,9 +135,9 @@ img.me {
 img.me_b {
   -webkit-transform: rotate(-2deg);
   -moz-transform: rotate(-2deg);
-  -webkit-box-shadow: 0 2px 5px #262626;
-  -moz-box-shadow: 0 2px 5px #262626;
-  box-shadow: 0 2px 5px #262626;
+  -webkit-box-shadow: 0 1px 3px #262626;
+  -moz-box-shadow: 0 1px 3px #262626;
+  box-shadow: 0 1px 3px #262626;
   border: 5px solid white;
   float: right;
   position: relative;
@@ -148,9 +148,9 @@ img.me_b {
 img.me_ski {
   -webkit-transform: rotate(-4deg);
   -moz-transform: rotate(-4deg);
-  -webkit-box-shadow: 0 2px 5px #262626;
-  -moz-box-shadow: 0 2px 5px #262626;
-  box-shadow: 0 2px 5px #262626;
+  -webkit-box-shadow: 0 1px 3px #262626;
+  -moz-box-shadow: 0 1px 3px #262626;
+  box-shadow: 0 1px 3px #262626;
   border: 5px solid white;
   float: right;
   position: relative;
@@ -365,8 +365,12 @@ footer {
     display: inline-block;
     vertical-align: top;
     width: 48%; }
+    footer .L2 h3 {
+      color: #bbbbbb; }
     footer .L2 dt {
-      color: gray; }
+      color: #bbbbbb; }
+    footer .L2 dd, footer .L2 p {
+      margin-bottom: 0.75em; }
 
 .overlay-container {
   display: none;
