@@ -110,25 +110,57 @@ nav {
         nav ul li a:hover {
           color: #0fb913;
           text-decoration: none; }
-
-.headline {
-  padding-right: 220px; }
-  .headline h1 {
-    margin-bottom: 0.5em; }
-  .headline p {
-    font-size: 110%; }
+    nav ul .blog {
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      background-color: #0fb913;
+      padding: 3px 8px; }
+      nav ul .blog:hover {
+        color: yellow; }
 
 img.me {
-  -webkit-transform: rotate(3deg);
-  -moz-transform: rotate(3deg);
-  -webkit-box-shadow: 0 2px 5px black;
-  -moz-box-shadow: 0 2px 5px black;
-  box-shadow: 0 2px 5px black;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -webkit-box-shadow: 0 2px 5px #262626;
+  -moz-box-shadow: 0 2px 5px #262626;
+  box-shadow: 0 2px 5px #262626;
   border: 5px solid white;
   float: right;
   position: relative;
-  right: 0;
-  top: 5px; }
+  right: -30px;
+  top: -130px;
+  z-index: 3; }
+
+img.me_b {
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -webkit-box-shadow: 0 2px 5px #262626;
+  -moz-box-shadow: 0 2px 5px #262626;
+  box-shadow: 0 2px 5px #262626;
+  border: 5px solid white;
+  float: right;
+  position: relative;
+  right: -200px;
+  top: 50px;
+  z-index: 2; }
+
+img.me_ski {
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  -webkit-box-shadow: 0 2px 5px #262626;
+  -moz-box-shadow: 0 2px 5px #262626;
+  box-shadow: 0 2px 5px #262626;
+  border: 5px solid white;
+  float: right;
+  position: relative;
+  right: -360px;
+  top: -160px;
+  z-index: 1; }
+
+.headline h1 {
+  margin-bottom: 0.5em;
+  width: 650px; }
 
 #social {
   background: -moz-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
@@ -140,7 +172,7 @@ img.me {
   background: linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0) 100%);
   padding: 0.5em 1em;
   margin: 3em 0;
-  width: 60%; }
+  width: 400px; }
   #social .network {
     color: #0fb913;
     display: inline-block;
@@ -278,49 +310,63 @@ img.me {
     background: black;
     padding: 5px; }
 
-#about h2 {
-  margin-bottom: 0.5em; }
-#about #current_chart, #about #past_chart {
-  display: block;
-  height: 230px;
-  overflow: visible;
-  width: 430px; }
-  #about #current_chart svg, #about #past_chart svg {
-    overflow: visible; }
-    #about #current_chart svg .labels, #about #past_chart svg .labels {
-      fill: white;
-      text-anchor: end; }
-    #about #current_chart svg .rules, #about #past_chart svg .rules {
-      fill: gray;
-      font-size: 13px;
-      text-anchor: middle; }
-    #about #current_chart svg .bubble, #about #past_chart svg .bubble {
-      font-size: 12px; }
-      #about #current_chart svg .bubble rect, #about #past_chart svg .bubble rect {
-        fill: gray;
-        width: 200px; }
-      #about #current_chart svg .bubble text, #about #past_chart svg .bubble text {
-        fill: white;
-        white-space: pre; }
-#about #current_chart .bars {
-  fill: #0fb913; }
-  #about #current_chart .bars:hover {
-    cursor: pointer; }
-#about #past_chart .bars {
-  fill: steelblue; }
-  #about #past_chart .bars:hover {
-    cursor: pointer; }
-#about p {
-  margin: 1.5em 0; }
-#about .L2 {
-  display: inline-block;
-  float: left;
-  margin-right: 15px;
-  width: 460px; }
+#about {
+  padding-bottom: 80px; }
+  #about h2 {
+    margin-bottom: 0.5em; }
+  #about p {
+    margin: 1.5em 0; }
+  #about .L2 {
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+    width: 460px; }
+  #about #current_chart, #about #past_chart {
+    display: block;
+    height: 230px;
+    width: 450px; }
+  #about .current {
+    background-color: #0fb913; }
+  #about .past {
+    background-color: steelblue; }
+  #about .bar {
+    color: white;
+    height: 25px;
+    margin-bottom: 4px;
+    padding: 0 3px;
+    position: relative; }
+    #about .bar:after {
+      -moz-box-shadow: 0 2px 2px #262626;
+      -webkit-box-shadow: 0 2px 2px #262626;
+      box-shadow: 0 2px 2px #262626;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      background-color: gray;
+      color: white;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 100px;
+      content: attr(title);
+      opacity: 0;
+      padding: 5px;
+      width: 200px;
+      z-index: 1; }
+    #about .bar:hover {
+      cursor: pointer; }
+      #about .bar:hover:after {
+        opacity: 1; }
 
 footer {
   background: black;
   padding: 20px; }
+  footer .L2 {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%; }
+    footer .L2 dt {
+      color: gray; }
 
 .overlay-container {
   display: none;

@@ -47,32 +47,63 @@ nav
         &:hover
           color: $sb_green
           text-decoration: none
+    .blog
+      @include round(4px)
+      background-color: $sb_green
+      padding: 3px 8px
+      &:hover
+        color: yellow
 
 ///////////////////////////////////////////////////////////
 // HEADLINE SECTION ///////////////////////////////////////
 ///////////////////////////////////////////////////////////
-.headline
-  padding-right: 220px
-  h1
-    margin-bottom: .5em
-  p
-    font-size: 110%
+
 img.me
-  -webkit-transform: rotate(3deg)
-  -moz-transform: rotate(3deg)
-  -webkit-box-shadow: 0 2px 5px black
-  -moz-box-shadow: 0 2px 5px black
-  box-shadow: 0 2px 5px black
+  -webkit-transform: rotate(5deg)
+  -moz-transform: rotate(5deg)
+  -webkit-box-shadow: 0 2px 5px $sb_dark_gray
+  -moz-box-shadow: 0 2px 5px $sb_dark_gray
+  box-shadow: 0 2px 5px $sb_dark_gray
   border: 5px solid white
   float: right
   position: relative
-  right: 0
-  top: 5px
+  right: -30px
+  top: -130px
+  z-index: 3
+img.me_b
+  -webkit-transform: rotate(-2deg)
+  -moz-transform: rotate(-2deg)
+  -webkit-box-shadow: 0 2px 5px $sb_dark_gray
+  -moz-box-shadow: 0 2px 5px $sb_dark_gray
+  box-shadow: 0 2px 5px $sb_dark_gray
+  border: 5px solid white
+  float: right
+  position: relative
+  right: -200px
+  top: 50px
+  z-index: 2
+img.me_ski
+  -webkit-transform: rotate(-4deg)
+  -moz-transform: rotate(-4deg)
+  -webkit-box-shadow: 0 2px 5px $sb_dark_gray
+  -moz-box-shadow: 0 2px 5px $sb_dark_gray
+  box-shadow: 0 2px 5px $sb_dark_gray
+  border: 5px solid white
+  float: right
+  position: relative
+  right: -360px
+  top: -160px
+  z-index: 1
+
+.headline
+  h1
+    margin-bottom: .5em
+    width: 650px
 #social
   @include graygrad
   padding: .5em 1em
   margin: 3em 0
-  width: 60%
+  width: 400px
   .network
     color: $sb_green
     display: inline-block
@@ -217,40 +248,9 @@ img.me
 // ABOUT ME SECTION ///////////////////////////////////////
 ///////////////////////////////////////////////////////////
 #about
+  padding-bottom: 80px
   h2
-    margin-bottom: .5em
-  #current_chart, #past_chart
-    display: block
-    height: 230px
-    overflow: visible
-    width: 430px
-    svg
-      overflow: visible
-      .labels
-        fill: white
-        text-anchor: end
-      .rules
-        fill: gray
-        font-size: 13px
-        text-anchor: middle
-      .bubble
-        font-size: 12px
-        rect
-          fill: gray
-          width: 200px
-        text
-          fill: white
-          white-space: pre
-  #current_chart
-    .bars
-      fill: $sb_green
-      &:hover
-        cursor: pointer
-  #past_chart
-    .bars
-      fill: steelblue
-      &:hover
-        cursor: pointer
+    margin-bottom: .5em    
   p
     margin: 1.5em 0
   .L2
@@ -258,9 +258,53 @@ img.me
     float: left
     margin-right: 15px
     width: 460px
+  #current_chart, #past_chart
+    display: block
+    height: 230px
+    width: 450px
+  .current
+    background-color: $sb_green
+  .past
+    background-color: steelblue
+  .bar
+    color: white
+    height: 25px
+    margin-bottom: 4px
+    padding: 0 3px
+    position: relative
+    &:after
+      -moz-box-shadow: 0 2px 2px $sb_dark_gray
+      -webkit-box-shadow: 0 2px 2px $sb_dark_gray
+      box-shadow: 0 2px 2px $sb_dark_gray
+      @include round(5px)
+      background-color: gray
+      color: white
+      display: block
+      position: absolute
+      top: 0
+      left: 100px
+      content: attr(title)
+      opacity: 0
+      padding: 5px
+      width: 200px
+      z-index: 1
+    &:hover
+      cursor: pointer
+      &:after
+        opacity: 1
+    
+///////////////////////////////////////////////////////////
+// FOOTER /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 footer
   background: black
   padding: 20px
+  .L2
+    display: inline-block
+    vertical-align: top
+    width: 48%
+    dt
+      color: gray
 
 
 ///////////////////////////////////////////////////////////

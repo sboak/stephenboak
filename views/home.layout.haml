@@ -38,8 +38,22 @@
         %a{:class=>"scroller", :href => "#writing"} Writing
       %li
         %a{:class=>"scroller", :href => "#about"} About Me
+      %li
+        %a{:class=>"blog", :href => "http://blog.stephenboak.com"} Blog
   .container
     = yield
   %footer
-    Footer
+    .container
+      %section{:class=>"L2", :id=>"contact"}
+        %h2 Contact Me
+        %dl
+          %dt Email at work:
+          %dd steve[at]boundary.com
+          %dt All other email:
+          %dd steveboak[at]gmail
+      %section{:class=>"L2", :id=>"About"}
+        %h2 About This Site
+        %dl
+          %p You can download all of the source code for <a href="https://github.com/sboak/stephenboak">this site</a>, as well as <a href="https://github.com/sboak/sboak.github.com">my blog</a>, on Github. The bar charts were created using <a href="http://mbostock.github.com/d3/">D3</a>. All other code is in raw HTML5, CSS3 and Javascript, with a little help from jQuery. The fonts used on the site are Museo Slab and Museo Sans, both provided by <a href="http://typekit.com/colophons/val5dqm">Typekit</a>.
+        
   %script{:src => "/js/charts.js"}
