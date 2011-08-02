@@ -253,6 +253,55 @@ img.me_ski
     margin-bottom: .5em    
   p
     margin: 1.5em 0
+  .tags
+    display: block
+    margin: 1em 0
+    li
+      margin-right: 1em
+    li, a
+      display: inline-block
+      height: 36px
+      line-height: 36px
+      position: relative
+      font-size: 16px
+    a
+      margin-left: 20px
+      padding: 0 10px 0 15px
+      background: gray
+      color: white
+      text-decoration: none
+      -moz-border-radius-bottomright: 4px
+      -webkit-border-bottom-right-radius: 4px
+      border-bottom-right-radius: 4px
+      -moz-border-radius-topright: 4px
+      -webkit-border-top-right-radius: 4px
+      border-top-right-radius: 4px
+      &:before
+        content: ""
+        float: left
+        position: absolute
+        top: 0
+        left: -18px
+        width: 0
+        height: 0
+        border-color: transparent gray transparent transparent
+        border-style: solid
+        border-width: 18px 18px 18px 0
+      &:after
+        content: ""
+        position: absolute
+        top: 16px
+        left: 0
+        float: left
+        width: 5px
+        height: 5px
+        -moz-border-radius: 2px
+        -webkit-border-radius: 2px
+        border-radius: 3px
+        background: black
+        -moz-box-shadow: -1px -1px 2px gray
+        -webkit-box-shadow: -1px -1px 2px gray
+        box-shadow: -1px -1px 2px gray
   .L2
     display: inline-block
     float: left
@@ -260,7 +309,7 @@ img.me_ski
     width: 460px
   #current_chart, #past_chart
     display: block
-    height: 230px
+    height: 260px
     width: 450px
   .current
     background-color: $sb_green
@@ -270,7 +319,7 @@ img.me_ski
     color: white
     height: 25px
     margin-bottom: 4px
-    padding: 0 3px
+    padding: 0 4px
     position: relative
     &:after
       -moz-box-shadow: 0 2px 2px $sb_dark_gray
@@ -283,7 +332,7 @@ img.me_ski
       position: absolute
       top: 0
       left: 100px
-      content: attr(title)
+      content: attr(description)
       opacity: 0
       padding: 5px
       width: 200px

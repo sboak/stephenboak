@@ -1,37 +1,37 @@
 var current = [
   {name: "HTML",
   level: 4,
-  description: "HTML5, Haml, ERB"},
+  description: "HTML5, Haml, ERB. I've been writing markup since 1993, and built my first website at  13."},
   {name: "CSS",
   level: 4,
-  description: "CSS3, Sass, Frameworks (960, blueprint)"},
+  description: "CSS3, Sass, Frameworks (960, blueprint). I've got most properties and design patterns memorized."},
   {name: "Interface Design",
   level: 4,
-  description: "Photoshop, Illustrator"},
+  description: "Expert in Adobe Creative Suite. Expert knowledge of web interfaces and experiences."},
   {name: "Interaction Design",
   level: 4,
-  description: "Omnigraffle, Wireframes, Workflows"},
+  description: "Omnigraffle, Wireframes, Workflows. I always research and document workflows before building them."},
   {name: "Javascript",
   level: 3,
-  description: "jQuery, but not needed"},
+  description: "solid jQuery knowledge and DOM manipulation, decent understanding of design patterns in JS."},
   {name: "Data Viz",
   level: 3,
-  description: "D3, Google Maps API and Charts API, Google Earth, KML"},
+  description: "D3, Google Maps API and Charts API, Google Earth, KML. My entire career, in some form, has been about bringing data to life."},
   {name: "Product Management",
   level: 3,
-  description: "Tickets, deadlines, and client feedback"},
+  description: "Managing tickets, deadlines, and client feedback"},
   {name: "Ruby",
   level: 2,
-  description: "Sinatra, Rails"},
+  description: "Sinatra, Rails. I can build solid mock back-ends for the systems I design."},
   {name: "MySQL",
   level: 2,
-  description: "Good understanding of information architecture"}
+  description: "Good understanding of information architecture and relational database design."}
 ];
 
 var past = [
   {name: "Parametric Modeling",
   level: 4,
-  description: "CATIA, Revit, AutoCAD"},
+  description: "CATIA, Revit, AutoCAD. Specialized in cost optimization and design-for-manufacturability, I saved almost $5M in the cost of facade production on the Beekman Tower."},
   {name: "GIS",
   level: 3,
   description: "Google Earth, ArcGIS, KML"},
@@ -63,7 +63,7 @@ current_vis.selectAll("div.bar").data(current).enter().append("div")
   .text(function(d){
     return d.name;
   })
-  .attr("title", function(d){
+  .attr("description", function(d){
     return d.description;
   });
   /*
@@ -96,6 +96,6 @@ past_vis.selectAll("div.bar").data(past).enter().append("div")
   .text(function(d){
     return d.name;
   })
-  .attr("title", function(d){
+  .attr("description", function(d){
     return d.description;
   });
