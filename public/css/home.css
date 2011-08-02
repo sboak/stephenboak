@@ -384,6 +384,11 @@ img.me_ski {
     margin-bottom: 4px;
     padding: 0 4px;
     position: relative; }
+    #about .bar .level {
+      color: #e5e5e5;
+      float: right;
+      font-size: 10px;
+      font-style: italic; }
     #about .bar:after {
       -moz-box-shadow: 0 2px 2px #262626;
       -webkit-box-shadow: 0 2px 2px #262626;
@@ -431,7 +436,7 @@ footer {
   height: 100%;
   position: fixed !important;
   width: 100%;
-  z-index: 2; }
+  z-index: 5; }
 
 .ui-widget-shadow {
   bottom: 40px;
@@ -441,7 +446,7 @@ footer {
   position: fixed !important;
   top: 40px;
   width: 1021px;
-  z-index: 2; }
+  z-index: 5; }
 
 .ui-widget-content {
   background: #111111;
@@ -454,4 +459,4 @@ footer {
   position: fixed !important;
   top: 50px;
   width: 1000px;
-  z-index: 3; }
+  z-index: 6; }
