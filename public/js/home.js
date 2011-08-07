@@ -3,8 +3,8 @@ var count = 5;
 
 $(document).ready(function() {
   
-  if (window.location.hash) {
-    var hash = (window.location.hash.substring(1));
+  var hash = (window.location.hash.substring(1));
+  if (window.location.hash && document.getElementById("overlay_" + hash)) {
     $("#content_" + hash).load("/" + hash);
     $("#overlay_" + hash).addClass("open");
     $("#overlay_" + hash).fadeIn("fast");
@@ -29,10 +29,12 @@ $(document).ready(function() {
   
   $(window).bind('hashchange', function() {
     var hash = (window.location.hash.substring(1));
-    $("#content_" + hash).load("/" + hash);
-    $("#overlay_" + hash).addClass("open");
-    $("#overlay_" + hash).fadeIn("fast");
-    $('html').css("overflow","hidden");
+    if (document.getElementById("overlay_" + hash)) {
+      $("#content_" + hash).load("/" + hash);
+      $("#overlay_" + hash).addClass("open");
+      $("#overlay_" + hash).fadeIn("fast");
+      $('html').css("overflow","hidden");
+    }
   });
   
   $('.scroller').click(function(event) {
