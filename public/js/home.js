@@ -3,60 +3,35 @@ var count = 5;
 
 $(document).ready(function() {
   
+  if (window.location.hash) {
+    var hash = (window.location.hash.substring(1));
+    $("#content_" + hash).load("/" + hash);
+    $("#overlay_" + hash).addClass("open");
+    $("#overlay_" + hash).fadeIn("fast");
+    $('html').css("overflow","hidden");
+  }
+  
   $(".ui-widget-overlay").click(function(){
-    $(".overlay-container").fadeOut("fast");
+    history.pushState("", document.title, window.location.pathname);
+    $(".open").fadeOut("fast");
+    $(".open").removeClass("open");
     $('html').css("overflow","auto");
   });
   
   $(document).keyup(function(e) {
     if (e.keyCode == 27) {
-      $(".ui-widget-overlay").click();
+      history.pushState("", document.title, window.location.pathname);
+      $(".open").fadeOut("fast");
+      $(".open").removeClass("open");
+      $('html').css("overflow","auto");
     }
   });
   
-  $("#a_quid").click(function(){
-    $("#content_quid").load("/quid");
-    $("#overlay_quid").fadeIn("fast");
-    $('html').css("overflow","hidden");
-  });
-  $("#a_raf").click(function(){
-    $("#content_raf").load("/raf");
-    $("#overlay_raf").fadeIn("fast");
-    $('html').css("overflow","hidden");
-  });
-  $("#a_riyadh").click(function(){
-    $("#content_riyadh").load("/riyadh");
-    $("#overlay_riyadh").fadeIn("fast");
-    $('html').css("overflow","hidden");
-  });
-  $("#a_dragonfly").click(function(){
-    $("#content_dragonfly").load("/dragonfly");
-    $("#overlay_dragonfly").fadeIn("fast");
-    $('html').css("overflow","hidden");
-  });
-  $("#a_helios").click(function(){
-    $("#content_helios").load("/helios");
-    $("#overlay_helios").fadeIn("fast");
-    $('html').css("overflow","hidden");
-  });
-  $("#a_beekman").click(function(){
-    $("#content_beekman").load("/beekman");
-    $("#overlay_beekman").fadeIn("fast");
-    $('html').css("overflow","hidden");
-  });
-  $("#a_foot").click(function(){
-    $("#content_foot").load("/foot");
-    $("#overlay_foot").fadeIn("fast");
-    $('html').css("overflow","hidden");
-  });
-  $("#a_doublevision").click(function(){
-    $("#content_doublevision").load("/doublevision");
-    $("#overlay_doublevision").fadeIn("fast");
-    $('html').css("overflow","hidden");
-  });
-  $("#a_ipod").click(function(){
-    $("#content_ipod").load("/ipod");
-    $("#overlay_ipod").fadeIn("fast");
+  $(window).bind('hashchange', function() {
+    var hash = (window.location.hash.substring(1));
+    $("#content_" + hash).load("/" + hash);
+    $("#overlay_" + hash).addClass("open");
+    $("#overlay_" + hash).fadeIn("fast");
     $('html').css("overflow","hidden");
   });
   

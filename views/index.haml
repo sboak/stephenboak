@@ -19,7 +19,7 @@
     -@projects.each do |project|
       -if project.get_type == "web"
         %figure{:class=> project.get_banner ? "banner" : "thumb" }
-          %a{:id=>"a_#{project.get_code}", :href=> project.get_banner ? "http://www.boundary.com" : nil }
+          %a{:id=>"a_#{project.get_code}", :href=> project.get_banner ? "http://www.boundary.com" : "##{project.get_code}", :title=>"#{project.get_name}" }
             %img{:src=>"/images/thumb-#{project.get_code}.jpg", :alt=>"#{project.get_name} thumbnail"}
           %figcaption
             %span.name=project.get_name
@@ -34,7 +34,7 @@
     -@projects.each do |project|
       -if project.get_type == "architecture"
         %figure{:class=>"thumb"}
-          %a{:id=>"a_#{project.get_code}"}
+          %a{:id=>"a_#{project.get_code}", :title=>"#{project.get_name}", :href=>"##{project.get_code}"}
             %img{:src=>"/images/thumb-#{project.get_code}.jpg", :alt=>"#{project.get_name} thumbnail"}
           %figcaption
             %span.name=project.get_name
@@ -49,7 +49,7 @@
     -@projects.each do |project|
       -if project.get_type == "other"
         %figure{:class=>"thumb"}
-          %a{:id=>"a_#{project.get_code}"}
+          %a{:id=>"a_#{project.get_code}", :title=>"#{project.get_name}", :href=>"##{project.get_code}"}
             %img{:src=>"/images/thumb-#{project.get_code}.jpg", :alt=>"#{project.get_name} thumbnail"}
           %figcaption
             %span.name=project.get_name
@@ -71,20 +71,18 @@
 
 %section{:class=>"L1", :id=>"about"}
   %h1 About Me
-  %p
-    I made my first website at the age of 14, and led the design of an
-    %a{:href=>"http://web.archive.org/web/19970624132812/http://www.teenvoice.com/Main.html", :target=>"_blank"}online newspaper for teens
-    in high school. I'm trained as both an engineer and a designer, and have worked on project teams in each role - and I understand what each role brings to great products. I currently work at 
-    %a{:href => "http://www.boundary.com"} Boundary
-    designing a next-generation real-time network monitoring and operations platform.
-  %h2 Interested In
-  %ul{:class=>"tags"}
+  %ul
     %li
-      %a Interfaces for Data Exploration 
+      I currently work at 
+      %a{:href => "http://www.boundary.com"} Boundary
+      designing a next-generation real-time network monitoring and operations platform.
     %li
-      %a WebGL & 3D Web Environments
-    %li
-      %a HTML5 for Rich Media
+      I made my first website at the age of 14, and led the design of an
+      %a{:href=>"http://web.archive.org/web/19970624132812/http://www.teenvoice.com/Main.html", :target=>"_blank"}online newspaper for teens
+      in high school.
+    %li I'm trained as both an engineer and a designer, and have worked on project teams in each role - and I understand what each role brings to great products.
+    
+  %a{:class=>"button", :href=>"/stephenboak-resume.pdf", :title=>"Download Resume"} Download Résumé
 
   %section{:class=>"L2", :id=>"skills_current"}
     %h2 Current Skills

@@ -2,7 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 
-set :environment, :production
+set :environment, :development
 
 class Project
   def initialize(name, code, type, desc, banner)
