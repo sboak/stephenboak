@@ -1,6 +1,7 @@
-require 'rubygems'  
+require 'rubygems'
 require 'sinatra'
 require 'haml'
+require File.expand_path(File.dirname(__FILE__) + '/config')
 
 class Project
   def initialize(name, code, type, desc, banner)
