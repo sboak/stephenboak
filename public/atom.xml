@@ -3,7 +3,7 @@
  <title>Stephen Boak Blog</title>
  <link href="http://blog.stephenboak.com/atom.xml" rel="self"/>
  <link href="http://blog.stephenboak.com/"/>
- <updated>2011-07-09T11:10:19-07:00</updated>
+ <updated>2011-08-07T19:54:57-07:00</updated>
  <id>http://blog.stephenboak.com/</id>
  <author>
    <name>Stephen Boak</name>
@@ -11,57 +11,80 @@
  </author>
  
  <entry>
-   <title>Test Post</title>
-   <link href="http://blog.stephenboak.com/2011/06/05/test-post2.html"/>
-   <updated>2011-06-05T00:00:00-07:00</updated>
-   <id>http://blog.stephenboak.com/2011/06/05/test-post2</id>
-   <content type="html">&lt;h1&gt;&lt;a href=&quot;/2011/06/05/test-post2.html&quot;&gt;Test Post&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Text showing &lt;em&gt;italic markdown&lt;/em&gt;. Show a &lt;a href=&quot;http://www.stephenboak.com/&quot;&gt;Link&lt;/a&gt;. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&lt;/p&gt;
-&lt;pre&gt;console.log(x);
-./start.sh
-bundle exec efjlsfldskfdslkfj --start;&lt;/pre&gt;
-&lt;h2&gt;Level 2 Heading&lt;/h2&gt;
-&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#8220;This is a blockquote. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&lt;/p&gt;
+   <title>Easy as (a) Pie</title>
+   <link href="http://blog.stephenboak.com/2011/08/07/easy-as-a-pie.html"/>
+   <updated>2011-08-07T00:00:00-07:00</updated>
+   <id>http://blog.stephenboak.com/2011/08/07/easy-as-a-pie</id>
+   <content type="html">&lt;h1&gt;&lt;a href=&quot;/2011/08/07/easy-as-a-pie.html&quot;&gt;Easy as (a) Pie&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Through my work at &lt;a href=&quot;http://www.boundary.com/&quot;&gt;Boundary&lt;/a&gt; I&amp;#8217;ve started playing with the &lt;a href=&quot;http://mbostock.github.com/d3/&quot;&gt;D3&lt;/a&gt; visualization library, trying to build some interesting visualizations for our real-time network monitoring dashboard. I&amp;#8217;ve really been enjoying D3 and Mike Bostock, the creator, has been extremely helpful to me and lots of others in the &lt;a href=&quot;http://groups.google.com/group/d3-js&quot;&gt;d3-js Google Group&lt;/a&gt;. Since the library is new, I hope the series of experiments I post here can be helpful in spreading some knowledge and awareness of the library.&lt;/p&gt;
+&lt;h2&gt;What You&amp;#8217;re Building&lt;/h2&gt;
+&lt;p&gt;My first experiment is an animated pie chart meant to visualize a breakdown of incoming network traffic by port. Here is the completed pie chart:&lt;br /&gt;
+&lt;div id=&quot;easy-as-pie-chart&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ve also posted the complete source code on &lt;a href=&quot;http://jsfiddle.net/stephenboak/hYuPb/&quot;&gt;JSFiddle&lt;/a&gt;. I&amp;#8217;m aware that there are some compatibility issues, both in my code and in the D3 libraries, with older browsers. For now I&amp;#8217;m simply going to hope that you can see everything here correctly.&lt;/p&gt;
+&lt;h2&gt;Building the Visualization&lt;/h2&gt;
+&lt;p&gt;For the sake of brevity I&amp;#8217;ll skip over some of the details, but feel free to &lt;a href=&quot;mailto:stephen.boak@gmail.com&quot;&gt;contact me&lt;/a&gt; with any questions.&lt;/p&gt;
+&lt;p&gt;There are a couple of D3 helper functions that I use. The first is &lt;a href=&quot;https://github.com/mbostock/d3/wiki/Pie-Layout#pie&quot;&gt;pie layout&lt;/a&gt;, which will take an incoming data array and give you back an object with the necessary angle and radius parameters to construct an arc.&lt;/p&gt;
+&lt;pre&gt;//D3 helper function to populate pie slice parameters from array data
+var donut = d3.layout.pie().value(function(d){
+  return d.octetTotalCount;
+});&lt;/pre&gt;
+&lt;p&gt;The second is a function to return a color value from an &lt;a href=&quot;https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20&quot;&gt;ordinal scale of 20&lt;/a&gt; preset colors:&lt;/p&gt;
+&lt;pre&gt;//D3 helper function to create colors from an ordinal scale:
+var color = d3.scale.category20();&lt;/pre&gt;
+&lt;p&gt;For this demo I&amp;#8217;m using a random number generator to return an object with two keys, port and octetTotalCount, meant to represent the breakdown of bits coming from each port:&lt;/p&gt;
+&lt;pre&gt;function fillArray() {
+  return {
+    port: &quot;port&quot;,
+    octetTotalCount: Math.ceil(Math.random()*(arrayRange))
+  };
+}&lt;/pre&gt;
+&lt;p&gt;The next few blocks of code set up the &lt;span class=&quot;caps&quot;&gt;SVG&lt;/span&gt; object, some groups to store content in, and the static content that will display until the first data pulse loads:&lt;/p&gt;
+&lt;pre&gt;var vis = d3.select(&quot;#easy-as-pie-chart&quot;).append(&quot;svg:svg&quot;)
+  .attr(&quot;width&quot;, w)
+  .attr(&quot;height&quot;, h);
+  .
+  .
+  .
+  var totalUnits = center_group.append(&quot;svg:text&quot;)
+    .attr(&quot;class&quot;, &quot;units&quot;)
+    .attr(&quot;dy&quot;, 21)
+    .attr(&quot;text-anchor&quot;, &quot;middle&quot;) // text-align: right
+    .text(&quot;kb&quot;);&lt;/pre&gt;
+&lt;p&gt;Next is the beginning of the update() function, which runs each time new data comes in (here I&amp;#8217;ve set the update function to run every 1500ms). First I generate new random data &amp;#8211; I wanted this visualization to handle varying numbers of ports as well as a large range of incoming values, so both the size and values of the array are variable:&lt;/p&gt;
+&lt;pre&gt;function update() {
+  arraySize = Math.ceil(Math.random()*10);
+  streakerDataAdded = d3.range(arraySize).map(fillArray);&lt;/pre&gt;
+&lt;p&gt;The part of the visualization I had the most trouble with was getting the pie slices to animate/tween properly while handling the varying array size and range. First, you need a good understanding of how D3 handles this variation &amp;#8211; a good primer is Mike Bostocks &lt;a href=&quot;http://mbostock.github.com/d3/tutorial/circle.html&quot;&gt;Three Little Circles&lt;/a&gt; tutorial, explaining data binding, as well as the enter() and exit() operations. Below, I&amp;#8217;m updating path arcs whenever data exists, and adding and removing arc segments as needed:&lt;/p&gt;
+&lt;pre&gt;//DRAW ARC PATHS
+paths = arc_group.selectAll(&quot;path&quot;).data(filteredPieData);
+paths.enter().append(&quot;svg:path&quot;)
+  .attr(&quot;stroke&quot;, &quot;white&quot;)
+  .attr(&quot;stroke-width&quot;, 0.5)
+  .attr(&quot;fill&quot;, function(d, i) { return color(i); })
+  .transition()
+    .duration(tweenDuration)
+    .attrTween(&quot;d&quot;, pieTween);
+paths
+  .transition()
+    .duration(tweenDuration)
+    .attrTween(&quot;d&quot;, pieTween);
+paths.exit()
+  .transition()
+    .duration(tweenDuration)
+    .attrTween(&quot;d&quot;, removePieTween)
+  .remove();&lt;/pre&gt;
+&lt;p&gt;The tweening of the pie pieces is done through two functions I wrote, one to handle adjustment of sizes (pieTween) and the other to handle removal of pie pieces (removePieTween). The pieTween function looks at the previous angles of each piece and interpolates angles between them. The removePieTween function interpolates between the piece&amp;#8217;s final value and 360° (or 2*Pi radians).&lt;/p&gt;
+&lt;p&gt;Nearly identical tweening operations are used for the tick marks and labels of the chart.&lt;/p&gt;
+&lt;h2&gt;Improvements&lt;/h2&gt;
+&lt;p&gt;There are a few things I&amp;#8217;m still trying to improve about this chart:&lt;/p&gt;
 &lt;ul&gt;
-	&lt;li&gt;Bullet item 1&lt;/li&gt;
-	&lt;li&gt;Bullet item 2&lt;/li&gt;
-	&lt;li&gt;Bullet item 3&lt;/li&gt;
-	&lt;li&gt;Bullet item 4&lt;/li&gt;
-	&lt;li&gt;Bullet item 5&lt;/li&gt;
-&lt;/ul&gt;</content>
-   <author>
-     <name>Stephen Boak</name>
-     <uri>http://blog.stephenboak.com/about.html</uri>
-   </author>
- </entry>
- 
- <entry>
-   <title>Test Post</title>
-   <link href="http://blog.stephenboak.com/2011/06/05/test-post.html"/>
-   <updated>2011-06-05T00:00:00-07:00</updated>
-   <id>http://blog.stephenboak.com/2011/06/05/test-post</id>
-   <content type="html">&lt;h1&gt;&lt;a href=&quot;/2011/06/05/test-post.html&quot;&gt;Test Post&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Text showing &lt;em&gt;italic markdown&lt;/em&gt;. Show a &lt;a href=&quot;http://www.stephenboak.com/&quot;&gt;Link&lt;/a&gt;. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&lt;/p&gt;
-&lt;h2&gt;Level 2 Heading&lt;/h2&gt;
-&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#8220;This is a blockquote. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&lt;/p&gt;
-&lt;ul&gt;
-	&lt;li&gt;Bullet item 1&lt;/li&gt;
-	&lt;li&gt;Bullet item 2&lt;/li&gt;
-	&lt;li&gt;Bullet item 3&lt;/li&gt;
-	&lt;li&gt;Bullet item 4&lt;/li&gt;
-	&lt;li&gt;Bullet item 5&lt;/li&gt;
+	&lt;li&gt;I&amp;#8217;d like to add a piece to the filterData() function that will persist entry position in the array, so that if a particular port is represented through time it&amp;#8217;s position in the array does not change.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;console.log(x);
-./start.sh
-bundle exec efjlsfldskfdslkfj --start;&lt;/pre&gt;</content>
+&lt;ul&gt;
+	&lt;li&gt;When there are a few small values near each other the labels overlap. I&amp;#8217;d like to add some functionality that will adjust label positions so that the text doesn&amp;#8217;t do this.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you&amp;#8217;ve got some ideas on how to make either of these improvements, or any other ideas to improve the visualization (or to represent this data in an even more creative way), I would love to hear from you, as would the rest of the team at &lt;a href=&quot;mailto:jobs@boundary.com&quot;&gt;Boundary&lt;/a&gt;.&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/pie-random.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;window.onload = drawPie;&lt;/script&gt;</content>
    <author>
      <name>Stephen Boak</name>
      <uri>http://blog.stephenboak.com/about.html</uri>
