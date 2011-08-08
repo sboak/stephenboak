@@ -1,5 +1,5 @@
 environment: development
-chdir: /var/www/stephenboak/current/stephenboak
+chdir: /var/www/stephenboak
 address: www.stephenboak.com
 user: root
 group: root
