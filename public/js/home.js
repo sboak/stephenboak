@@ -114,7 +114,7 @@ function showTweets(tweets)
 
 function getPosts(count)
 {
-  $.get('/atom.xml', showPosts);
+  $.get('http://blog.stephenboak.com/atom.xml', showPosts);
 }
 
 function showPosts(posts)
