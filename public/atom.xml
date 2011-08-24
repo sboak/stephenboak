@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- <title>Stephen Boak Blog</title>
+ <title>Stephen Boak - Blog</title>
  <link href="http://blog.stephenboak.com/atom.xml" rel="self"/>
  <link href="http://blog.stephenboak.com/"/>
- <updated>2011-08-07T19:54:57-07:00</updated>
+ <updated>2011-08-24T09:05:26-07:00</updated>
  <id>http://blog.stephenboak.com/</id>
  <author>
    <name>Stephen Boak</name>
    <email>stephen.boak@gmail.com</email>
  </author>
+ 
+ <entry>
+   <title>CSS3 Radios and Checkboxes</title>
+   <link href="http://blog.stephenboak.com/2011/08/23/css3-radios-checks.html"/>
+   <updated>2011-08-23T00:00:00-07:00</updated>
+   <id>http://blog.stephenboak.com/2011/08/23/css3-radios-checks</id>
+   <content type="html">&lt;h1&gt;&lt;a href=&quot;/2011/08/23/css3-radios-checks.html&quot;&gt;CSS3 Radios and Checkboxes&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Restyling form elements is usually pretty painful, requiring javascript and some ugly &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; &amp;#8211; so when I stumbled across this solution the other day I was impressed:&lt;/p&gt;
+&lt;div class=&quot;css3_menu&quot;&gt;
+  &lt;label class=&quot;heading&quot;&gt;Radios:&lt;/label&gt;
+&lt;div class=&quot;buttonset&quot; id=&quot;display_direction&quot;&gt;
+&lt;input type=&quot;radio&quot; name=&quot;option&quot; id=&quot;option1&quot;/&gt;&lt;label for=&quot;option1&quot;&gt;Radio 1&lt;/label&gt;&lt;input type=&quot;radio&quot; name=&quot;option&quot; id=&quot;option2&quot;/&gt;&lt;label for=&quot;option2&quot;&gt;Radio 2&lt;/label&gt;&lt;input type=&quot;radio&quot; name=&quot;option&quot; checked=&quot;checked&quot; id=&quot;option3&quot;/&gt;&lt;label for=&quot;option3&quot;&gt;Radio 3&lt;/label&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;css3_menu&quot;&gt;
+  &lt;label class=&quot;heading&quot;&gt;Checks:&lt;/label&gt;
+&lt;div class=&quot;buttonset&quot; id=&quot;display_direction&quot;&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;check&quot; id=&quot;check1&quot;/&gt;&lt;label for=&quot;check1&quot;&gt;Check 1&lt;/label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;check&quot; id=&quot;check2&quot;/&gt;&lt;label for=&quot;check2&quot;&gt;Check 2&lt;/label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;check&quot; checked=&quot;checked&quot; id=&quot;check3&quot;/&gt;&lt;label for=&quot;check3&quot;&gt;Check 3&lt;/label&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;It&amp;#8217;s a pure CSS3 override of radio button and checkbox styles &amp;#8211; no javascript, no unnecessary styling or tricks in the markup.&lt;/p&gt;
+&lt;p&gt;It&amp;#8217;s a pretty simple trick &amp;#8211; you just hide the radio button itself and conditionally style its label when selected. In the markup, just make sure each input element has a label associated with it using the &amp;#8220;for&amp;#8221; attribute like so:&lt;/p&gt;
+&lt;pre&gt;&amp;lt;input type=&quot;radio&quot; name=&quot;option&quot; id=&quot;option1&quot;/&amp;gt;
+&amp;lt;label for=&quot;option1&quot;&amp;gt;Option 1&amp;lt;/label&amp;gt;&lt;/pre&gt;
+&lt;p&gt;And use the following &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; to hide the radio button or checkbox and style the label when the input element is &amp;#8220;checked&amp;#8221;:&lt;/p&gt;
+&lt;pre&gt;.css3_menu .buttonset input[type=radio], 
+.css3_menu .buttonset input[type=checkbox] {
+  display: none;
+}
+.css3_menu .buttonset input[type=radio]:checked + label, 
+.css3_menu .buttonset input[type=checkbox]:checked + label {
+  background-color: #0FB913;
+  color: white;
+}&lt;/pre&gt;
+&lt;p&gt;I&amp;#8217;ve put the complete example code on &lt;a href=&quot;http://jsfiddle.net/stephenboak/fUVkR/&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;</content>
+   <author>
+     <name>Stephen Boak</name>
+     <uri>http://www.stephenboak.com</uri>
+   </author>
+ </entry>
  
  <entry>
    <title>Easy as (a) Pie</title>
@@ -87,7 +127,7 @@ paths.exit()
 &lt;script type=&quot;text/javascript&quot; src=&quot;/js/pie-random.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;window.onload = drawPie;&lt;/script&gt;</content>
    <author>
      <name>Stephen Boak</name>
-     <uri>http://blog.stephenboak.com/about.html</uri>
+     <uri>http://www.stephenboak.com</uri>
    </author>
  </entry>
  
