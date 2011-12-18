@@ -3,12 +3,25 @@
  <title>Stephen Boak - Blog</title>
  <link href="http://blog.stephenboak.com/atom.xml" rel="self"/>
  <link href="http://blog.stephenboak.com/"/>
- <updated>2011-08-24T09:05:26-07:00</updated>
+ <updated>2011-12-18T10:50:18-08:00</updated>
  <id>http://blog.stephenboak.com/</id>
  <author>
    <name>Stephen Boak</name>
    <email>stephen.boak@gmail.com</email>
  </author>
+ 
+ <entry>
+   <title>Appearance on 'Thought You Should See This'</title>
+   <link href="http://blog.stephenboak.com/2011/11/10/thought-you-should-see-this.html"/>
+   <updated>2011-11-10T00:00:00-08:00</updated>
+   <id>http://blog.stephenboak.com/2011/11/10/thought-you-should-see-this</id>
+   <content type="html">&lt;h1&gt;&lt;a href=&quot;/2011/11/10/thought-you-should-see-this.html&quot;&gt;Appearance on &amp;#8216;Thought You Should See This&amp;#8217;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;I was honored when &lt;a href=&quot;http://twitter.com/#!/helenwalters&quot;&gt;Helen Walters&lt;/a&gt; contacted me to say that she was impressed by the Boundary Logo and wanted to ask me a few questions about it. The resulting interview appeared on her blog, &lt;a href=&quot;http://www.thoughtyoushouldseethis.com/post/12600120652/eye-on-identity-design-boundary&quot;&gt;Thought You Should See This&lt;/a&gt;.&lt;/p&gt;</content>
+   <author>
+     <name>Stephen Boak</name>
+     <uri>http://www.stephenboak.com</uri>
+   </author>
+ </entry>
  
  <entry>
    <title>CSS3 Radios and Checkboxes</title>
