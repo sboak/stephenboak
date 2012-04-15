@@ -312,6 +312,12 @@ img.me_ski {
     background: black;
     padding: 5px; }
 
+.instagram-image {
+  display: inline-block;
+  height: 150px;
+  margin-right: 20px;
+  width: 150px; }
+
 #about {
   padding-bottom: 80px; }
   #about h2 {

@@ -106,3 +106,33 @@ past_vis.selectAll("div.bar").data(past).enter().append("div")
   .attr("description", function(d){
     return d.description;
   });
+
+
+///////////////////////////////////////////////////////////
+// INSTAGRAM //////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+$.ajax({
+  type: "GET",
+  dataType: "jsonp",
+  cache: false,
+  url: 'https://api.instagram.com/v1/users/559599/media/recent/?access_token=559599.1fb234f.e70ae04287a84b7ebb8105678e2293e8',
+  success: function(res) {
+    var limit = 5;
+    
+    for(var i = 0; i < limit; i++) {
+      $('#instagram').append(createPhotoElement(res.data[i]));
+    }
+  }
+});
+
+function createPhotoElement(photo) {
+  return $('<a>')
+    .attr('target', '_blank')
+    .attr('href', photo.link)
+    .append(
+      $('<img>')
+        .addClass('instagram-image')
+        .attr('src', photo.images.thumbnail.url)
+    );
+}
