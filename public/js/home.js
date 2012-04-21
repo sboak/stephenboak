@@ -122,9 +122,10 @@ function showPosts(posts)
     var str = '<ul>';
     $.each($(posts).find('entry'), function(index,post)
     {
+      var postdate = new Date($(post).find("updated").text());
       str+= '<li><a href="' + $(post).find("link").attr("href") + '">';
       str+= $(post).find('title').text();
-      str+= '</a></li>';
+      str+= '</a><span class="date">' + jQuery.timeago(postdate) + '</span></li>';
     });
     str+= '</ul>';
     $('#posts').html(str);

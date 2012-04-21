@@ -311,12 +311,33 @@ img.me_ski {
     -webkit-border-radius: 4px;
     background: black;
     padding: 5px; }
+#writing #posts li {
+  background: -moz-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0.2) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262626), color-stop(100%, rgba(38, 38, 38, 0.2)));
+  background: -webkit-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0.2) 100%);
+  background: -o-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0.2) 100%);
+  background: -ms-linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0.2) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$sb_dark_gray', endColorstr='$sb_dark_gray',GradientType=0 );
+  background: linear-gradient(top, #262626 0%, rgba(38, 38, 38, 0.2) 100%);
+  margin: 0.5em 0;
+  padding: 0.5em; }
+#writing #posts .date {
+  display: block;
+  color: gray; }
 
 .instagram-image {
+  -webkit-transition: border-color 250ms;
+  -moz-transition: border-color 250ms;
+  -o-transition: border-color 250ms;
+  -ms-transition: border-color 250ms;
+  transition: border-color 250ms;
+  border: 5px solid #262626;
   display: inline-block;
   height: 150px;
-  margin-right: 20px;
+  margin-right: 10px;
   width: 150px; }
+  .instagram-image:hover {
+    border-color: #0fb913; }
 
 #about {
   padding-bottom: 80px; }

@@ -245,12 +245,29 @@ img.me_ski
       @include round
       background: black
       padding: 5px
+  #posts
+    width 460px
+    li
+      @include graygrad
+      margin: .5em 0
+      padding: .5em
+    .date
+      display: block
+      color: gray
 
 .instagram-image
+  -webkit-transition: border-color 250ms
+  -moz-transition: border-color 250ms
+  -o-transition: border-color 250ms
+  -ms-transition: border-color 250ms
+  transition: border-color 250ms
+  border: 5px solid $sb_dark_gray
   display: inline-block
   height: 150px
-  margin-right: 20px
+  margin-right: 10px
   width: 150px
+  &:hover
+    border-color: $sb_green
       
 ///////////////////////////////////////////////////////////
 // ABOUT ME SECTION ///////////////////////////////////////
