@@ -3,12 +3,122 @@
  <title>Stephen Boak - Blog</title>
  <link href="http://blog.stephenboak.com/atom.xml" rel="self"/>
  <link href="http://blog.stephenboak.com/"/>
- <updated>2012-04-21T09:55:50-07:00</updated>
+ <updated>2012-05-18T09:02:09-07:00</updated>
  <id>http://blog.stephenboak.com/</id>
  <author>
    <name>Stephen Boak</name>
    <email>stephen.boak@gmail.com</email>
  </author>
+ 
+ <entry>
+   <title>Visualizing My First Marathon</title>
+   <link href="http://blog.stephenboak.com/2012/05/18/marathon.html"/>
+   <updated>2012-05-18T00:00:00-07:00</updated>
+   <id>http://blog.stephenboak.com/2012/05/18/marathon</id>
+   <content type="html">&lt;link href=&quot;/css/marathon.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot;
+src=&quot;http://maps.googleapis.com/maps/api/js?key=AIzaSyBrKq4GUqLs_gpnvOfm9vYT0MkbJMnTCWI&amp;sensor=false&quot;&gt;
+&lt;/script&gt;&lt;h1&gt;&lt;a href=&quot;/2012/05/18/marathon.html&quot;&gt;Visualizing My First Marathon&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/images/brooke_n_me.png&quot; style=&quot;display: block;float:right;width:200px;height:200px;border:10px solid #262626;margin:15px;-webkit-transform: rotate(-2deg); -moz-transform: rotate(-2deg);&quot; /&gt;&lt;br /&gt;
+Back in October I ran my first marathon with my girlfriend Brooke. There are plenty of articles with training programs and tips for runners, but I&amp;#8217;m a dataviz geek and to me this was an opportunity to collect and play with some really interesting data. I tracked all of our runs using the &lt;a href=&quot;http://itunes.apple.com/us/app/nike+-gps/id387771637?mt=8&quot;&gt;Nike+ app&lt;/a&gt; on my iPhone, and I&amp;#8217;m sharing the data to show what the training really looked like.&lt;/p&gt;
+&lt;h2&gt;Overall Stats&lt;/h2&gt;
+&lt;table class=&quot;data_block&quot;&gt;
+	&lt;tr&gt;
+		&lt;th colspan=&quot;2&quot;&gt;Training Time &lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt; &lt;h3&gt;59&lt;/h3&gt;days &lt;/td&gt;
+		&lt;td&gt; &lt;h3&gt;8.5&lt;/h3&gt;weeks &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table class=&quot;data_block&quot;&gt;
+	&lt;tr&gt;
+		&lt;th colspan=&quot;2&quot;&gt;Runs &lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt; &lt;h3&gt;25&lt;/h3&gt;total &lt;/td&gt;
+		&lt;td&gt; &lt;h3&gt;2.9&lt;/h3&gt; per week &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table class=&quot;data_block&quot;&gt;
+	&lt;tr&gt;
+		&lt;th colspan=&quot;2&quot;&gt;Miles &lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt; &lt;h3&gt;254&lt;/h3&gt;total &lt;/td&gt;
+		&lt;td&gt; &lt;h3&gt;10.2&lt;/h3&gt;per run &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;We decided to allot &lt;strong&gt;about 2 months to training&lt;/strong&gt;. Looking back 25 runs doesn&amp;#8217;t sound like a lot, but we were running every other day &amp;#8211; and 250 miles is about the distance from San Francisco to San Lius Obispo.&lt;/p&gt;
+&lt;h2&gt;Training Runs by Week&lt;/h2&gt;
+&lt;section id=&quot;byweek&quot;&gt;
+&lt;div id=&quot;run_histogram&quot;&gt;&lt;/div&gt;
+&lt;p&gt;The graph illustrates our training program pretty well. A few trends are visible:&lt;/p&gt;
+&lt;h3&gt;Weekday runs didn&amp;#8217;t change that much&lt;/h3&gt;
+&lt;p&gt;Weekday runs were either 6-9 or 8-12 miles (one of each per week). Closer to the race, when the morning runs reached 90 minutes, there were some very early mornings and, as a result, very early nights.&lt;/p&gt;
+&lt;h3&gt;One long run per weekend&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;dashed lines on the chart mark Sundays&lt;/strong&gt;. We only did one long run (here I define long as &amp;gt;15miles) per week, and since they reach 20-21 miles and we needed &lt;strong&gt;3 or 4 hours&lt;/strong&gt; to do them there really wasn&amp;#8217;t any other option.&lt;/p&gt;
+&lt;h3&gt;Taper the last week&lt;/h3&gt;
+&lt;p&gt;We tapered our runs down during the last week or two, doing shorter distances all the way up til the day before the race, but still ran about every other day.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2&gt;Run Locations&lt;/h2&gt;
+&lt;p&gt;We were out of town for a few training runs but all of the local runs are plotted on the map:&lt;/p&gt;
+&lt;div id=&quot;run_container&quot;&gt;
+&lt;div class=&quot;active&quot; id=&quot;run_controls&quot;&gt;
+  &lt;div class=&quot;run_step&quot; id=&quot;step_prev&quot;&gt;&amp;larr;&lt;/div&gt;
+  &lt;div class=&quot;run_step&quot; id=&quot;step_next&quot;&gt;&amp;rarr;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;run_map&quot; style=&quot;width:630px; height:400px;&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;run_distance&quot;&gt;0.0mi&lt;/div&gt;
+&lt;p&gt;&lt;small&gt;You can also use left/right arrows to view runs&lt;/small&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Again, some trends that you can spot here:&lt;/p&gt;
+&lt;h3&gt;Avoiding Stoplights and Traffic&lt;/h3&gt;
+&lt;p&gt;Stopping mid-run can really throw off your concentration and cadence, especially on longer runs. We went to great lengths to avoid stoplights and traffic, finding routes through parks, along waterways, and anywhere we&amp;#8217;d avoid having to stop.&lt;/p&gt;
+&lt;h3&gt;Emergent Running Patterns&lt;/h3&gt;
+&lt;p&gt;For a range of distances we&amp;#8217;d have go-to locations:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;For &lt;strong&gt;short runs&lt;/strong&gt; (&amp;lt;8mi) we found loops starting from our front door that got us back home easily&lt;/li&gt;
+	&lt;li&gt;For &lt;strong&gt;middle-distance distance&lt;/strong&gt; (10-15mi) we&amp;#8217;d go through parks, along the water, etc&amp;#8230;but still try to start and finish near home&lt;/li&gt;
+	&lt;li&gt;For the &lt;strong&gt;longest runs&lt;/strong&gt; (&amp;gt;15mi) we planned specific routes that weren&amp;#8217;t as convenient – anywhere we could fine flat stretches of road/trail that wouldn&amp;#8217;t mess up our flow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img class=&quot;race_pic&quot; src=&quot;/images/race_day2.png&quot;/&gt;&lt;/p&gt;
+&lt;h2&gt;Race Day&lt;/h2&gt;
+&lt;p&gt;We were both aware of what happens on race day – excitement, thousands of people around, and weeks of training culminating in a single event. I still made &lt;strong&gt;the biggest rookie mistake&lt;/strong&gt; – fast out of the gate, and all downhill from there:&lt;/p&gt;
+&lt;h3&gt;&lt;del&gt;Fail&lt;/del&gt; Pace by Mile&lt;/h3&gt;
+&lt;div id=&quot;race_pace&quot; style=&quot;clear:both;float:none;&quot;&gt;&lt;/div&gt;
+&lt;table class=&quot;data_block&quot;&gt;
+	&lt;tr&gt;
+		&lt;th colspan=&quot;2&quot;&gt;Start Pace &lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt; &lt;h3&gt;7.5&lt;/h3&gt;&lt;span class=&quot;caps&quot;&gt;MPH&lt;/span&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;h3&gt;8&lt;/h3&gt;Min/Mile &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table class=&quot;data_block&quot;&gt;
+	&lt;tr&gt;
+		&lt;th colspan=&quot;2&quot;&gt;End Pace &lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt; &lt;h3&gt;5.5&lt;/h3&gt;&lt;span class=&quot;caps&quot;&gt;MPH&lt;/span&gt; &lt;/td&gt;
+		&lt;td&gt; &lt;h3&gt;11&lt;/h3&gt;Min/Mile &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;At mile 1 my pace was about 7.5MPH (8-minute miles) but by the end of the race was down to 5.5MPH (11-minute miles). Aside from a few downhill sections of the course (and the spikes every 5 miles as I dashed toward approaching aid stations to suck down more Gatorade) &lt;strong&gt;my pace never increased&lt;/strong&gt;. My race time was &lt;strong&gt;a little over 4 hours&lt;/strong&gt; and there was a full 3 days of recovery afterward.&lt;/p&gt;
+&lt;h2&gt;Colophon&lt;/h2&gt;
+&lt;p&gt;This post was made using the following tools:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Data Collection&lt;/strong&gt; – iPhone 4 and the &lt;a href=&quot;http://itunes.apple.com/us/app/nike+-gps/id387771637?mt=8&quot;&gt;Nike+ app&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Bar &amp;amp; Line Graphs&lt;/strong&gt; – Made with &lt;a href=&quot;http://d3js.org/&quot;&gt;D3&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Map&lt;/strong&gt; – Made with &lt;a href=&quot;https://developers.google.com/maps/documentation/javascript/&quot;&gt;Google Maps &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt; V3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/marathon.js&quot;&gt;&lt;/script&gt;</content>
+   <author>
+     <name>Stephen Boak</name>
+     <uri>http://www.stephenboak.com</uri>
+   </author>
+ </entry>
  
  <entry>
    <title>Kindle Highlights: 'The China Study'</title>
