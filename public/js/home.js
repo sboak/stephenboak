@@ -106,7 +106,7 @@ function showTweets(tweets)
         i++;
     });
     str+= '</ul>';
-    str+= '<a class="tweets" href="http://www.twitter.com/#!/' + userName + '">All Tweets...</a>';
+    str+= '<a class="tweets" target="_blank" href="http://www.twitter.com/#!/' + userName + '">All Tweets...</a>';
     $('#tweets').html(str);
     $('#tweets > ul > li:odd').addClass('odd');
     $('#tweets > ul > li:even').addClass('even');
@@ -119,15 +119,18 @@ function getPosts(count)
 
 function showPosts(posts)
 {
+    var i = 0;
     var str = '<ul>';
     $.each($(posts).find('entry'), function(index,post)
     {
+      if(i == count + 2)  return;
       var postdate = new Date($(post).find("updated").text());
       str+= '<li><a href="' + $(post).find("link").attr("href") + '">';
       str+= $(post).find('title').text();
       str+= '</a><span class="date">' + jQuery.timeago(postdate) + '</span></li>';
     });
     str+= '</ul>';
+    str+= '<a class="tweets" target="_blank" href="http://blog.stephenboak.com/">All Posts...</a>';
     $('#posts').html(str);
 }
 

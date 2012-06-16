@@ -3,12 +3,160 @@
  <title>Stephen Boak - Blog</title>
  <link href="http://blog.stephenboak.com/atom.xml" rel="self"/>
  <link href="http://blog.stephenboak.com/"/>
- <updated>2012-05-18T09:02:09-07:00</updated>
+ <updated>2012-06-16T11:09:55-07:00</updated>
  <id>http://blog.stephenboak.com/</id>
  <author>
    <name>Stephen Boak</name>
    <email>stephen.boak@gmail.com</email>
  </author>
+ 
+ <entry>
+   <title>Tutorial: Network Flow Visualizations With Directed Edges in D3</title>
+   <link href="http://blog.stephenboak.com/2012/06/15/d3-flow-vis-tutorial.html"/>
+   <updated>2012-06-15T00:00:00-07:00</updated>
+   <id>http://blog.stephenboak.com/2012/06/15/d3-flow-vis-tutorial</id>
+   <content type="html">&lt;link href=&quot;/css/06.2012.flow-viz.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;h1&gt;&lt;a href=&quot;/2012/06/15/d3-flow-vis-tutorial.html&quot;&gt;Tutorial: Network Flow Visualizations With Directed Edges in D3&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Back in May I posted some network visualization experiments we did at Boundary to the &lt;a href=&quot;http://blog.boundary.com/2012/05/14/visualizing-network-flow-data/&quot; target=&quot;_blank&quot;&gt;Boundary Blog&lt;/a&gt;. This is the companion post walking through the code and showing you how we made them.&lt;/p&gt;
+&lt;p&gt;In total we made 4 of these experiments. Since much of the &lt;strong&gt;code repeats across experiments&lt;/strong&gt; I&amp;#8217;ll walk through the general setup and then the specifics of each experiment&lt;/p&gt;
+&lt;h2&gt;General Setup&lt;/h2&gt;
+&lt;p&gt;All of these experiments use the same base of &lt;strong&gt;draggable circles&lt;/strong&gt;, shown here:&lt;br /&gt;
+&lt;div class=&quot;flow-viz-container&quot; id=&quot;viz0&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;First, I randomly generate the circle positions:&lt;/p&gt;
+&lt;pre&gt;var width = 600,
+    height = 300;
+var radius = 25; /* radius of circles */
+var numCircles = 6; /* number of circles to make */
+/* array of random x,y coords for circles, away from edges */
+var circles = d3.range(numCircles).map(function(i, d) {
+  return [
+    Math.round(50 + (i/numCircles)*(width - 50)),
+    Math.round(30 + Math.random()*(height - 80))
+  ];
+});&lt;/pre&gt;
+&lt;p&gt;After creating the &lt;span class=&quot;caps&quot;&gt;SVG&lt;/span&gt; element, and a group to contain the circles, I append the circles to the new group.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;m using a jQuery each statement to iterate through the circle position array and append a circle for each item. D3 &lt;a href=&quot;http://mbostock.github.com/d3/tutorial/circle.html#binding_data&quot; target=&quot;_blank&quot;&gt;data binding&lt;/a&gt; would handle this really well, but I&amp;#8217;m not really concerned with data binding here and I wanted a quick way to give each circle a unique ID to handle the links between circles (described later):&lt;/p&gt;
+&lt;pre&gt;$.each(circles, function(i, d) {
+  g_circles.append(&quot;circle&quot;)
+    .attr('filter', 'url(#dropShadow)')
+    .attr(&quot;class&quot;,&quot;circle&quot;)
+    .attr(&quot;id&quot;, &quot;zerocircle&quot; + i)
+    .attr(&quot;r&quot;, radius)
+    .attr(&quot;cx&quot;, d[0])
+    .attr(&quot;cy&quot;, d[1])
+    .call(drag);
+});&lt;/pre&gt;
+&lt;p&gt;Note that the last line of this operation calls the &amp;#8220;drag&amp;#8221; function, which handles&amp;#8230;you guessed it, dragging the circles. It&amp;#8217;s a &lt;a href=&quot;https://github.com/mbostock/d3/wiki/Drag-Behavior#wiki-drag&quot; target=&quot;_blank&quot;&gt;built-in d3 behavior&lt;/a&gt;, but you still need to tell it what to do when it sees dragging, which in my case is to call the &amp;#8220;dragmove&amp;#8221; function:&lt;/p&gt;
+&lt;pre&gt;var drag = d3.behavior.drag()
+.origin(Object)
+.on(&quot;drag&quot;, function(){ dragmove(this); });&lt;/pre&gt;
+&lt;p&gt;&amp;#8220;dragmove&amp;#8221; simply handles the positions of the circles, checking against the borders of the &lt;span class=&quot;caps&quot;&gt;SVG&lt;/span&gt; element to make sure the circles don&amp;#8217;t disappear:&lt;/p&gt;
+&lt;pre&gt;function dragmove(dragged) {
+  var x = d3.select(dragged).attr(&quot;cx&quot;);
+  var y = d3.select(dragged).attr(&quot;cy&quot;);
+  d3.select(dragged)
+    .attr(&quot;cx&quot;, Math.max(radius, Math.min(width - radius,
+    +x + d3.event.dx)))
+    .attr(&quot;cy&quot;, Math.max(radius, Math.min(height - radius,
+    +y + d3.event.dy)));
+}&lt;/pre&gt;
+&lt;h2&gt;Scales and Links&lt;/h2&gt;
+&lt;p&gt;I&amp;#8217;m using two D3 helper functions to handle the color and interpolation of the line elements. The first is a &lt;a href=&quot;https://github.com/mbostock/d3/wiki/SVG-Shapes#wiki-line&quot; target=&quot;_blank&quot;&gt;line generator&lt;/a&gt; with linear interpolation (to create a line from an array of points I pass it) and the second is a &lt;a href=&quot;https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_interpolateRgb&quot; target=&quot;_blank&quot;&gt;color interpolator&lt;/a&gt; to handle coloring the path between a low and high color value.&lt;/p&gt;
+&lt;p&gt;For all of the experiments I use an array of link objects to create the paths. Each link object contains the source and target IDs for the circles it connects and a randomly-generated strength value determining the thickness and color of the link.&lt;/p&gt;
+&lt;pre&gt;/* line generator with linear interpolation */
+var d3LineLinear = d3.svg.line().interpolate(&quot;linear&quot;);
+/* color range for flow lines */ 
+var d3color = d3.interpolateRgb(&quot;#444&quot;, &quot;#999&quot;);
+/* array of links between circles */
+var links = [
+  {source: 0, target: 5, strength: Math.round(Math.random()*10)},
+  {source: 0, target: 2, strength: Math.round(Math.random()*10)},
+  {source: 1, target: 3, strength: Math.round(Math.random()*10)},
+  {source: 2, target: 4, strength: Math.round(Math.random()*10)},
+  {source: 3, target: 5, strength: Math.round(Math.random()*10)},
+  {source: 5, target: 0, strength: Math.round(Math.random()*10)},
+  {source: 2, target: 0, strength: Math.round(Math.random()*10)},
+  {source: 3, target: 1, strength: Math.round(Math.random()*10)}
+];&lt;/pre&gt;
+&lt;p&gt;The 4 experiments can be broken into two categories: &lt;strong&gt;straight edges&lt;/strong&gt; and &lt;strong&gt;curved edges&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Straight Edges&lt;/h2&gt;
+&lt;p&gt;We attempted straight edges using arrows and tapers. In the diagram, the labels show source/destination sides and the &lt;strong&gt;order that the points are drawn&lt;/strong&gt; in:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/flow-diagram1.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;m using D3&amp;#8217;s data binding on the flow lines, appending a new path to the g_lines group for each element in the links array. I&amp;#8217;m scaling the color using the D3 helper function. The most important bit is the &lt;strong&gt;drawCurve function&lt;/strong&gt;, which is really the only thing that changes from one example to the next and is used to draw the path outline, &lt;strong&gt;the &amp;#8220;d&amp;#8221; attribute&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre&gt;g_lines.selectAll(&quot;.link_line&quot;).data(links).enter().append(&quot;path&quot;)
+  .attr(&quot;class&quot;, &quot;link_line&quot;)
+  .attr(&quot;fill&quot;, function(d) { return d3color(color_scale(d.strength)); })
+  .attr(&quot;id&quot;, function(i, d) { return &quot;link_line&quot; + d; } )
+  .attr(&quot;d&quot;, function(d){ return drawCurve(d) });&lt;/pre&gt;
+&lt;h3&gt;Arrows&lt;/h3&gt;
+&lt;div class=&quot;flow-viz-container&quot; id=&quot;viz1&quot;&gt;&lt;/div&gt;
+&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/RKm7g/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At the beginning the of the &lt;strong&gt;drawCurve function&lt;/strong&gt; I establish 6 variables: the source and destination X&amp;amp;Y coordinates, the slope between the source/target points, and the slope plus 90degrees, which is used to calculate offsets perpendicular to the angle between the two points. Then it&amp;#8217;s pretty much calculating the coordinates of the 5 points of the arrow:&lt;/p&gt;
+&lt;pre&gt;var arrowOffset = 20;
+var points = [];
+points.push([
+  sourceX + radius*Math.cos(slope) - strength_scale(d.strength) * Math.cos(slopePlus90), 
+  sourceY + radius*Math.sin(slope) - strength_scale(d.strength) * Math.sin(slopePlus90)
+]);
+points.push([
+  sourceX + radius*Math.cos(slope), 
+  sourceY + radius*Math.sin(slope)
+]);
+points.push([
+  targetX - radius*Math.cos(slope), 
+  targetY - radius*Math.sin(slope)
+]);
+points.push([
+  targetX - (radius+arrowOffset)*Math.cos(slope) - strength_scale(d.strength + (arrowOffset/2)) * Math.cos(slopePlus90), 
+  targetY - (radius+arrowOffset)*Math.sin(slope) - strength_scale(d.strength + (arrowOffset/2)) * Math.sin(slopePlus90)
+]);
+points.push([
+  targetX - (radius+arrowOffset)*Math.cos(slope) - strength_scale(d.strength) * Math.cos(slopePlus90), 
+  targetY - (radius+arrowOffset)*Math.sin(slope) - strength_scale(d.strength) * Math.sin(slopePlus90)
+]);&lt;/pre&gt;
+&lt;p&gt;Without getting into a trig lesson, I&amp;#8217;m using the strength_scale function to calculate a thickness for the path, which determines how far point 2 is from point 1. There&amp;#8217;s also an &lt;strong&gt;arrowOffset&lt;/strong&gt; value of 20px which sets the thickness of the arrowhead. I&amp;#8217;m also offsetting all points by the radius of the circle so the lines don&amp;#8217;t clip the circles.&lt;/p&gt;
+&lt;h3&gt;Tapers, Connected&lt;/h3&gt;
+&lt;div class=&quot;flow-viz-container&quot; id=&quot;viz2&quot;&gt;&lt;/div&gt;
+&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/zJxJ7/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Tapers, Separated&lt;/h3&gt;
+&lt;div class=&quot;flow-viz-container&quot; id=&quot;viz3&quot;&gt;&lt;/div&gt;
+&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/wEeMz/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note that in all of these examples, the drawCurve function returns the result of the D3 line generator on the array of points, plus a &amp;#8220;Z&amp;#8221; appended to the end. The line generator actually returns a string representing the path coordinates. &lt;strong&gt;Appending a &amp;#8220;Z&amp;#8221; to the end tells the &lt;span class=&quot;caps&quot;&gt;SVG&lt;/span&gt; to close the path&lt;/strong&gt; and connect the last point back to the first:&lt;/p&gt;
+&lt;pre&gt;return d3LineLinear(points) + &quot;Z&quot;;&lt;/pre&gt;
+&lt;h2&gt;Curved Edges&lt;/h2&gt;
+&lt;p&gt;The order you draw your points is critical to getting the curved edges to render properly with basis interpolation. What you &lt;strong&gt;don&amp;#8217;t want&lt;/strong&gt; is a curve along the edge of the two source points at the left.  If you make these two points the first and last in the set (1 &amp;amp; 6) you can utilize the &lt;span class=&quot;caps&quot;&gt;SVG&lt;/span&gt; path closing (the &amp;#8220;Z&amp;#8221; appended to the path string) to close the path without basis interpolation. You also need to &lt;strong&gt;draw the target point twice&lt;/strong&gt; to avoid interpolation there:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/flow-diagram2.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Aside from that, you&amp;#8217;re basically introducing two new points to the tapered path above &amp;#8211; two midpoints that are offset by a parameter I&amp;#8217;ve set to 1/10th of the total line length here (so the offset/curve gets bigger the further away the two circles are):&lt;/p&gt;
+&lt;div class=&quot;flow-viz-container&quot; id=&quot;viz4&quot;&gt;&lt;/div&gt;
+&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/efSxc/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;/* percentage of line line to offset curves */
+var offsetScale = 0.1;
+/* basis interpolation rather than linear */
+var d3LineBasis = d3.svg.line().interpolate(&quot;basis&quot;);
+...
+var MP1X = halfX + (offsetScale * lineLength + strength_scale(d.strength)/2) * Math.cos(slopePlus90);
+var MP1Y = halfY + (offsetScale * lineLength + strength_scale(d.strength)/2) * Math.sin(slopePlus90);
+var MP2X = halfX + (offsetScale * lineLength - strength_scale(d.strength)/2) * Math.cos(slopePlus90);
+var MP2Y = halfY + (offsetScale * lineLength - strength_scale(d.strength)/2) * Math.sin(slopePlus90);
+...
+var points = [];
+points.push([(sourceX - strength_scale(d.strength) * Math.cos(slopePlus90)),
+(sourceY - strength_scale(d.strength) * Math.sin(slopePlus90))]);
+points.push([MP2X,MP2Y]);
+points.push(([(targetX  + radius * Math.cos(slope)),
+(targetY + radius * Math.sin(slope))]));
+points.push(([(targetX  + radius * Math.cos(slope)),
+(targetY + radius * Math.sin(slope))]));
+points.push([MP1X, MP1Y]);
+points.push([(sourceX + strength_scale(d.strength) * Math.cos(slopePlus90)),
+(sourceY + strength_scale(d.strength) * Math.sin(slopePlus90))]);&lt;/pre&gt;
+&lt;p&gt;Don&amp;#8217;t hesitate to contact me with any questions or feedback.&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/flow-viz0.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/flow-viz1.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/flow-viz2.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/flow-viz3.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/flow-viz4.js&quot;&gt;&lt;/script&gt;</content>
+   <author>
+     <name>Stephen Boak</name>
+     <uri>http://www.stephenboak.com</uri>
+   </author>
+ </entry>
  
  <entry>
    <title>Visualizing My First Marathon</title>
