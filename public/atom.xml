@@ -3,7 +3,7 @@
  <title>Stephen Boak - Blog</title>
  <link href="http://blog.stephenboak.com/atom.xml" rel="self"/>
  <link href="http://blog.stephenboak.com/"/>
- <updated>2012-06-16T11:09:55-07:00</updated>
+ <updated>2012-06-16T14:40:07-07:00</updated>
  <id>http://blog.stephenboak.com/</id>
  <author>
    <name>Stephen Boak</name>
@@ -90,7 +90,7 @@ var links = [
   .attr(&quot;d&quot;, function(d){ return drawCurve(d) });&lt;/pre&gt;
 &lt;h3&gt;Arrows&lt;/h3&gt;
 &lt;div class=&quot;flow-viz-container&quot; id=&quot;viz1&quot;&gt;&lt;/div&gt;
-&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/RKm7g/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/RKm7g/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt; and as a &lt;a target=&quot;_blank&quot; href=&quot;http://bl.ocks.org/2942506&quot;&gt;Gist&lt;/a&gt; on bl.ocks.org.&lt;/p&gt;
 &lt;p&gt;At the beginning the of the &lt;strong&gt;drawCurve function&lt;/strong&gt; I establish 6 variables: the source and destination X&amp;amp;Y coordinates, the slope between the source/target points, and the slope plus 90degrees, which is used to calculate offsets perpendicular to the angle between the two points. Then it&amp;#8217;s pretty much calculating the coordinates of the 5 points of the arrow:&lt;/p&gt;
 &lt;pre&gt;var arrowOffset = 20;
 var points = [];
@@ -115,12 +115,12 @@ points.push([
   targetY - (radius+arrowOffset)*Math.sin(slope) - strength_scale(d.strength) * Math.sin(slopePlus90)
 ]);&lt;/pre&gt;
 &lt;p&gt;Without getting into a trig lesson, I&amp;#8217;m using the strength_scale function to calculate a thickness for the path, which determines how far point 2 is from point 1. There&amp;#8217;s also an &lt;strong&gt;arrowOffset&lt;/strong&gt; value of 20px which sets the thickness of the arrowhead. I&amp;#8217;m also offsetting all points by the radius of the circle so the lines don&amp;#8217;t clip the circles.&lt;/p&gt;
-&lt;h3&gt;Tapers, Connected&lt;/h3&gt;
+&lt;h3&gt;Tapers, Joined&lt;/h3&gt;
 &lt;div class=&quot;flow-viz-container&quot; id=&quot;viz2&quot;&gt;&lt;/div&gt;
-&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/zJxJ7/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/zJxJ7/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt; and as a &lt;a target=&quot;_blank&quot; href=&quot;http://bl.ocks.org/2942542&quot;&gt;Gist&lt;/a&gt; on bl.ocks.org.&lt;/p&gt;
 &lt;h3&gt;Tapers, Separated&lt;/h3&gt;
 &lt;div class=&quot;flow-viz-container&quot; id=&quot;viz3&quot;&gt;&lt;/div&gt;
-&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/wEeMz/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/wEeMz/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt; and as a &lt;a target=&quot;_blank&quot; href=&quot;http://bl.ocks.org/2942556&quot;&gt;Gist&lt;/a&gt; on bl.ocks.org.&lt;/p&gt;
 &lt;p&gt;Note that in all of these examples, the drawCurve function returns the result of the D3 line generator on the array of points, plus a &amp;#8220;Z&amp;#8221; appended to the end. The line generator actually returns a string representing the path coordinates. &lt;strong&gt;Appending a &amp;#8220;Z&amp;#8221; to the end tells the &lt;span class=&quot;caps&quot;&gt;SVG&lt;/span&gt; to close the path&lt;/strong&gt; and connect the last point back to the first:&lt;/p&gt;
 &lt;pre&gt;return d3LineLinear(points) + &quot;Z&quot;;&lt;/pre&gt;
 &lt;h2&gt;Curved Edges&lt;/h2&gt;
@@ -128,7 +128,7 @@ points.push([
 &lt;p&gt;&lt;img src=&quot;/images/flow-diagram2.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Aside from that, you&amp;#8217;re basically introducing two new points to the tapered path above &amp;#8211; two midpoints that are offset by a parameter I&amp;#8217;ve set to 1/10th of the total line length here (so the offset/curve gets bigger the further away the two circles are):&lt;/p&gt;
 &lt;div class=&quot;flow-viz-container&quot; id=&quot;viz4&quot;&gt;&lt;/div&gt;
-&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/efSxc/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Source code available on &lt;a href=&quot;http://jsfiddle.net/stephenboak/efSxc/&quot; target=&quot;_blank&quot;&gt;JSFiddle&lt;/a&gt; and as a &lt;a target=&quot;_blank&quot; href=&quot;http://bl.ocks.org/2942559&quot;&gt;Gist&lt;/a&gt; on bl.ocks.org.&lt;/p&gt;
 &lt;pre&gt;/* percentage of line line to offset curves */
 var offsetScale = 0.1;
 /* basis interpolation rather than linear */
