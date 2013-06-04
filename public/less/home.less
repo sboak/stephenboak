@@ -1,0 +1,504 @@
+@import "variables.less";
+@import "mixins.less";
+@import "reset.less";
+@import "scaffolding.less";
+@import "type.less";
+@import "utilities.less";
+@import "_main_nav.less";
+
+h1 { font-size: @baseFontSize * 2.0; }
+h2 { font-size: @baseFontSize * 1.5; }
+h3 { font-size: @baseFontSize * 1.25; }
+
+.seperator {
+  background: #111;
+}
+.seperator, .seperator2 {
+  text-align: center;
+}
+
+.L1 { margin: 1.5em 0; }
+.L2 { margin: 0.75em 0; }
+
+#home-intro {
+  position: absolute;
+  top: 80px;
+  left: 10%;
+  width: 75%;
+  z-index: 2;
+  h1,h2 {
+    line-height: 1.2;
+    text-shadow: 0 1px 6px @grayDark;
+  }
+  h2 {
+    color: @grayLighter;
+    font-weight: normal;
+  }
+  #social {
+    .border-radius(5px);
+    background-color: rgba(74,74,74,.75);
+    display: inline-block;
+    left: -10px;
+    padding: 5px 10px;
+    position: relative;
+    h3 {
+      color: @grayLighter;
+      font-weight: normal;
+      line-height: 1.2;
+      margin: 0;
+    }
+    .network {
+      color: @sb_green;
+      display: inline;
+      margin-left: .5em;
+    }
+    .social_link {
+      color: @grayLighter;
+      display: inline-block;
+      margin: 5px 15px 0 0;
+      text-align: center;
+      &:hover, &:active {
+        color: @sb_green;
+      }
+    }
+    i {
+      display: block;
+      font-size: 24px;
+      line-height: 24px;
+      vertical-align: top;
+    }
+  }
+
+}
+
+///////////////////////////////////////////////////////////
+// GALLERY STYLES /////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+.gallery {
+  margin-bottom: -60px;
+  position: relative;
+  top: -60px;
+  z-index: 1;
+  .item {
+    background: @bodyBackground;
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  .controls {
+    bottom: 5px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  .control-button {
+    color: #ccc;
+    color: rgba(255, 255, 255, 0.4);
+    display: inline-block;
+    margin: 0 0.02em;
+    font-size: 3em;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.1s;
+    &:hover {
+      color: white;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  #gallery-item-01 {
+    background-image: url('/images/gallery/000-small.jpg');
+  }
+  #gallery-item-02 {
+    background-image: url('/images/gallery/001-small.jpg');
+  }
+  #gallery-item-03 {
+    background-image: url('/images/gallery/002-small.jpg');
+  }
+  #gallery-item-04 {
+    background-image: url('/images/gallery/003-small.jpg');
+  }
+  #gallery-item-05 {
+    background-image: url('/images/gallery/004-small.jpg');
+  }
+  #gallery-item-06 {
+    background-image: url('/images/gallery/005-small.jpg');
+  }
+  &:after {
+    .border-radius(100%);
+    .box-shadow(0 0 60px rgba(0,0,0,0.8));
+    content:"";
+    position:absolute;
+    z-index:-1;
+    bottom:0px;
+    left:10%;
+    right:10%;
+    width:80%;
+    height:50%;
+  }
+}
+
+///////////////////////////////////////////////////////////
+// ABOUT ME SECTION ///////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+#about {
+  background: @sb_dark_gray;
+  height: 200px;
+}
+
+///////////////////////////////////////////////////////////
+// PORTFOLIO SECTION //////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+#portfolio {
+  h1,h2,h3 {
+    text-align: center;
+  }
+  h3 {
+    color: #BBB;
+    font-weight: normal;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    li {
+      .border-radius(3px);
+      .box-shadow(0 0 3px #111);
+      background-color: #111;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: inline-block;
+      height: 175px;
+      position: relative;
+      margin: 1em 0;
+      padding: 0;
+      text-align: left;
+      vertical-align: top;
+      width: 100%;
+      &#boundary {
+        background-image: url('/images/thumb2-boundary.png');
+      }
+      &#tankh2o {
+        background-image: url('/images/thumb2-tankh2o.jpg');
+      }
+      &#quid {
+        background-image: url('/images/thumb2-quid.jpg');
+      }
+      &#wedding {
+        background-image: url('/images/thumb2-wedding.jpg');
+      }
+      &#dragonfly {
+        background-image: url('/images/thumb2-dragonfly.jpg');
+      }
+      &#beekman {
+        background-image: url('/images/thumb2-beekman.jpg');
+      }
+      a {
+        display: block;
+        height: 175px;
+      }
+      &:hover, &:active {
+        a {
+          background: rgba(38,38,38,.25);
+        }
+        .title {
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+      &:after {
+        .border-radius(100%);
+        .box-shadow(0 0 60px rgba(0,0,0,0.8));
+        content:"";
+        position:absolute;
+        z-index:-1;
+        bottom:0px;
+        left:10%;
+        right:10%;
+        width:80%;
+        height:50%;
+      }
+    }
+    .title {
+      @transition: height .25s ease-in-out, line-height .25s ease-in-out;
+      .transition(@transition);
+      background: rgba(38,38,38,.75);
+      bottom: 0;
+      color: white;
+      height: 30px;
+      left: 0;
+      line-height: 30px;
+      overflow: hidden;
+      padding: 0 10px;
+      position: absolute;
+      right: 0;
+      text-overflow: ellipsis;
+      text-shadow: 0 1px 0 #111;
+      white-space: nowrap;
+    }
+    em {
+      color: @grayLight;
+      font-style: normal;
+      padding-left: 5px;
+    }
+  }
+
+  .cbp-pgcontent {
+    .border-radius(4px);
+    .box-shadow(0 0 10px @grayLight);
+    display: block;
+    min-height: 240px;
+    padding: 0 10px;
+    position: relative;
+  }
+}
+
+///////////////////////////////////////////////////////////
+// WRITING SECTION ////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+#writing {
+  h1,h2,h3 {
+    text-align: center;
+  }
+  h3 {
+    color: #BBB;
+    font-weight: normal;
+    text-align: left;
+  }
+  .L2 {
+    display: block;
+  }
+  ul {
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+  }
+  li {
+    border-bottom: 1px dotted gray;
+    //background: rgba(38,38,38,.75);
+    padding: 1em 0;
+  }
+  h5 {
+    margin: 0;
+  }
+  .writing-link {
+    .border-radius(10px);
+    background: #111;
+    display: block;
+    font-size: @baseFontSize;
+    text-align: center;
+  }
+
+  #tweets {
+    img {
+      float: left;
+      padding: 0 10px 0 0;
+    }
+    .date {
+      color: gray;
+      font-size: 90%;
+    }
+  }
+
+  #posts {
+    .date {
+      display: block;
+      color: gray;
+    }
+  }
+  #instagram {
+    text-align: center;
+    a {
+      display: inline-block;
+      -webkit-transition: -moz-transform .1s ease-out;
+      -moz-transition: -webkit-transform .1s ease-out;
+      -o-transition: -o-transform .1s ease-out;
+      height: auto;
+      min-width: 120px;
+      max-width: 400px;
+      transition: transform .1s ease-out;
+      position: relative;
+      width: 50%;
+      &:hover {
+        .box-shadow(0 0 5px #111);
+        .scale(1.1);
+        z-index: 5;
+        .caption {
+          visibility: visible;
+        }
+      }
+    }
+    .instagram-image {
+      min-width: 120px;
+      max-width: 400px;
+      width: 100%;
+    }
+    .caption {
+      background: rgba(38,38,38,.75);
+      bottom: 0;
+      color: @grayLighter;
+      font-size: 12px;
+      left: 0;
+      height: 20px;
+      line-height: 20px;
+      overflow: hidden;
+      padding: 0 10px;
+      position: absolute;
+      right: 0;
+      text-overflow: ellipsis;
+      visibility: hidden;
+      white-space: nowrap;
+      z-index: 1;
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////
+// FOOTER /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+footer {
+  background: #111;
+  width: 100%;
+  .L2 {
+    display: block;
+    h3 {
+      color: #BBB;
+    }
+    dt { color: #BBB; }
+    dd, p { margin-bottom: .75em; }
+  }
+}
+
+///////////////////////////////////////////////////////////
+// MEDIA QUERIES FOR LARGER RESOLUTIONS ///////////////////
+///////////////////////////////////////////////////////////
+
+@media screen and (min-width: 800px) {
+  h1 { font-size: @baseFontSize * 2.75; }
+  h2 { font-size: @baseFontSize * 2.25; }
+  h3 { font-size: @baseFontSize * 1.75; }
+
+  .L1 { margin: 3em 0; }
+  .L2 { margin: 1.5em 0; }
+
+  #site-logo {
+    .border-radius(33px);
+    background-size: auto auto;
+    border: 2px solid @grayLighter;
+    height: 60px;
+    width: 60px;
+    &:hover {
+      background-color: black;
+      background-color: rgba(0,0,0,.75);
+      border-color: white;
+    }
+  }
+  #home-intro {
+    width: 50%;
+    top: 110px;
+    #social {
+      .social_link {
+        margin-right: 20px;
+      }
+      i {
+        font-size: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .gallery {
+    margin-bottom: -140px;
+    top: -140px;
+    .item {
+      height: 500px;
+    }
+    #gallery-item-01 {
+      background-image: url('/images/gallery/000.jpg');
+    }
+    #gallery-item-02 {
+      background-image: url('/images/gallery/001.jpg');
+    }
+    #gallery-item-03 {
+      background-image: url('/images/gallery/002.jpg');
+    }
+    #gallery-item-04 {
+      background-image: url('/images/gallery/003.jpg');
+    }
+    #gallery-item-05 {
+      background-image: url('/images/gallery/004.jpg');
+    }
+    #gallery-item-06 {
+      background-image: url('/images/gallery/005.jpg');
+    }
+  }
+
+  #portfolio ul {
+    > li {
+      height: 200px;
+      margin: .75em 2%;
+      width: 45%;
+      a {
+        height: 200px;
+      }
+    }
+  }
+  #writing {
+    .L2 {
+      display: inline-block;
+      float: left;
+      width: 50%;
+    }
+    .writing-link {
+      display: inline-block;
+      margin: 10px;
+      padding: 0 10px;
+      text-align: left;
+    }
+    ul {
+      margin: 1em;
+    }
+    #instagram a {
+      width: 25%;
+    }
+  }
+
+  footer {
+    .L2 {
+      display: inline-block;
+      vertical-align: top;
+      width: 48%;
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  #portfolio ul {
+    > li {
+      margin: 10px 1%;
+      width: 31%;
+    }
+  }
+  #writing {
+    #instagram {
+      a {
+        width: 20%;
+      }
+      .instagram-image {
+        min-width: 150px;
+        max-width: 400px;
+        width: 100%;
+      }
+    }
+  }
+}

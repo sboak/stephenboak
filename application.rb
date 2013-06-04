@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'haml'
+#require 'haml'
 require File.expand_path(File.dirname(__FILE__) + '/config')
 
 class Project
@@ -11,28 +11,28 @@ class Project
     @type=type
     @banner=banner
   end
-  
+
   def get_name
     @name
   end
-  
+
   def get_code
     @code
   end
-  
+
   def get_desc
     @desc
   end
-  
+
   def get_type
     @type
   end
-  
+
   def get_banner
     @banner
   end
 end
-  
+
 get '/' do
   @projects = [
     Project.new("Boundary", "boundary", "web", "Tools to visualize, explore, and troubleshoot network performance with no hardware to install.", true),
@@ -48,11 +48,21 @@ get '/' do
     ]
   @title = 'Home'
   @current_page = 'home'
-  haml :index, :layout => :'home.layout'
+  erb :index, :layout => :'index.layout'
 end
 
 get '/beekman' do
   haml :beekman
+end
+
+get '/boundary' do
+  @title = 'Boundary'
+  @current_page = 'boundary'
+  haml :boundary, :layout => :'project.layout'
+end
+
+get '/boundaq' do
+  haml :boundaq
 end
 
 get '/doublevision' do
