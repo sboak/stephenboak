@@ -20,7 +20,7 @@
     -@projects.each do |project|
       -if project.get_type == "web"
         %figure{:class=> project.get_banner ? "banner" : "thumb" }
-          %a{:id=>"a_#{project.get_code}", :href=> project.get_banner ? "http://www.boundary.com" : "##{project.get_code}", :title=>"#{project.get_name}" }
+          %a{:id=>"a_#{project.get_code}", :href=> project.get_banner ? "/#boundaq" : "##{project.get_code}", :title=>"#{project.get_name}" }
             %img{:src=>"/images/thumb-#{project.get_code}.jpg", :alt=>"#{project.get_name} thumbnail"}
           %figcaption
             %span.name=project.get_name
