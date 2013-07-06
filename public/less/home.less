@@ -19,39 +19,78 @@ h3 { font-size: @baseFontSize * 1.25; }
 .seperator {
   background: #111;
   margin: 0 0 20px 0;
-  padding: 10px 0;
+  padding: 6px 0;
 }
 .seperator, .seperator2 {
   text-align: center;
 }
+.content-padded {
+  padding: 0 20px;
+}
 
 .L1 { margin-bottom: 30px; }
 .L2 { margin-bottom: 15px; }
-
-#home-intro {
-  position: absolute;
-  top: 100px;
-  left: 10%;
-  width: 75%;
-  z-index: 2;
-  h1,h2 {
-    line-height: 1.2;
-    text-shadow: 0 1px 5px black;
-  }
-  h2 {
-    color: @grayLighter;
-    font-weight: normal;
-  }
-}
 
 ///////////////////////////////////////////////////////////
 // ABOUT ME SECTION ///////////////////////////////////////
 ///////////////////////////////////////////////////////////
 
 #about {
-  //background: @sb_dark_gray;
+  h3 {
+    text-align: center;
+  }
+  #headline {
+    background: #111;
+    margin-bottom: 15px;
+    padding: 15px 0 35px 0;
+    p {
+      line-height: 1.4;
+      margin: auto;
+      width: 90%;
+    }
+  }
   .L2 {
     display: block;
+  }
+  .label-list {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+    li {
+      .border-radius(3px);
+      background-color: @sb_dark_gray;
+      display: inline-block;
+      margin: 0 5px 5px 0;
+      padding: 3px 8px;
+    }
+  }
+  dt {
+    color: white;
+  }
+  dd {
+    margin-bottom: 15px;
+  }
+  #social {
+    padding: 5px 10px;
+    text-align: center;
+    .network {
+      color: @sb_green;
+      display: inline;
+      font-weight: normal;
+    }
+    .social_link {
+      color: @grayLighter;
+      display: inline-block;
+      margin: 0;
+      width: 32px;
+      &:hover, &:active {
+        color: @sb_green;
+      }
+    }
+    i {
+      display: block;
+      font-size: 28px;
+    }
   }
 }
 
@@ -269,29 +308,6 @@ footer {
     dt { color: #BBB; }
     dd, p { margin-bottom: .75em; }
   }
-  #social {
-    display: inline-block;
-    left: -10px;
-    padding: 5px 10px;
-    position: relative;
-    .network {
-      color: @sb_green;
-      display: inline;
-      font-weight: normal;
-    }
-    .social_link {
-      color: @grayLighter;
-      display: inline-block;
-      text-align: center;
-      &:hover, &:active {
-        color: @sb_green;
-      }
-    }
-    i {
-      display: block;
-      font-size: 24px;
-    }
-  }
 }
 
 ///////////////////////////////////////////////////////////
@@ -318,15 +334,25 @@ footer {
       border-color: white;
     }
   }
-  #home-intro {
-    width: 50%;
-    top: 200px;
-  }
   #about {
+    #headline {
+      p {
+        font-size: 115%;
+        max-width: 720px;
+      }
+    }
     .L2 {
       display: inline-block;
       vertical-align: top;
       width: 49%;
+    }
+    #social {
+      .social_link {
+        width: 36px;
+      }
+      i {
+        font-size: 32px;
+      }
     }
   }
 
@@ -367,11 +393,6 @@ footer {
       display: inline-block;
       vertical-align: top;
       width: 49%;
-    }
-    #social {
-      i {
-        font-size: 32px;
-      }
     }
   }
 }

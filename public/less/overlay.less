@@ -34,7 +34,7 @@ body.overlay {
   bottom: 20px;
   color: white;
   display: block;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   padding: 12px;
   position: fixed;
@@ -111,6 +111,7 @@ body.overlay {
       &#first { background-image: url("@{URLroot}/01-600px.jpg"); }
       &#second { background-image: url("@{URLroot}/02-600px.jpg"); }
       &#third { background-image: url("@{URLroot}/03-600px.jpg"); }
+      &#fourth { background-image: url("@{URLroot}/04-600px.jpg"); }
     }
     &.boundary {
       @URLroot: "/images/boundary";
@@ -187,8 +188,9 @@ body.overlay {
 @media screen and (min-width: 800px) {
   .overlay-close {
     bottom: auto;
-    padding: 20px;
-    top: 20px;
+    font-size: 36px;
+    padding: 16px;
+    top: 16px;
   }
   .overlay-container {
     font-size: 100%;
@@ -203,6 +205,7 @@ body.overlay {
         &#first { background-image: url("@{URLroot}/01-940px.jpg"); }
         &#second { background-image: url("@{URLroot}/02-940px.jpg"); }
         &#third { background-image: url("@{URLroot}/03-940px.jpg"); }
+        &#fourth { background-image: url("@{URLroot}/04-940px.jpg"); }
       }
       &.boundary {
         @URLroot: "/images/boundary";
