@@ -311,6 +311,20 @@
        -o-transform: translate3d(@x, @y, @z);
           transform: translate3d(@x, @y, @z);
 }
+.animation(@arguments) {
+  -webkit-animation: @arguments;
+     -moz-animation: @arguments;
+      -ms-animation: @arguments;
+       -o-animation: @arguments;
+          animation: @arguments;
+}
+.animation-delay(@duration) {
+  -webkit-animation-delay: @duration;
+     -moz-animation-delay: @duration;
+      -ms-animation-delay: @duration;
+       -o-animation-delay: @duration;
+          animation-delay: @duration;
+}
 
 // Backface visibility
 // Prevent browsers from flickering when using CSS 3D transforms.

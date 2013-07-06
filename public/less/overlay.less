@@ -1,0 +1,264 @@
+///////////////////////////////////////////////////////////
+// PROJECT OVERLAY ////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+html.overlay {
+  overflow: hidden;
+}
+
+body.overlay {
+  overflow: hidden;
+  .overlay-container {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    .opacity(100);
+    visibility: visible;
+  }
+  .overlay-close {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    .opacity(100);
+    visibility: visible;
+  }
+}
+.overlay-close {
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  .opacity(0);
+  background: black;
+  bottom: 20px;
+  color: white;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px;
+  position: fixed;
+  top: auto;
+  right: 20px;
+  visibility: hidden;
+  z-index: 21;
+  &:hover, &:active {
+    background: @sb_green;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.overlay-container {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  .transition(all .25s);
+  .opacity(0);
+  background: @grayDarker;
+  background: rgba(26,26,26,.95);
+  font-size: 85%;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+  z-index: 20;
+  h4 { font-size: 85%; }
+  .container-fluid {
+    > h2 {
+      margin-bottom: 20px;
+    }
+    padding: 20px 10px;
+    text-align: center;
+    p {
+      line-height: 1.4;
+      margin: 0 auto;
+      text-align: left;
+      width: 90%;
+    }
+    .project-link {
+      background: #111;
+      display: block;
+      margin: 30px auto;
+      padding: 5px 0;
+      text-align: center;
+      text-shadow: 0 -1px 0 black;
+      width: 90%;
+      h4 { color: @sb_green; }
+    }
+  }
+  figure {
+    margin: 40px auto;
+    max-width: 600px;
+    position: relative;
+  }
+  .project-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    &.tankh2o {
+      @URLroot: "/images/tankh2o";
+      &#first { background-image: url("@{URLroot}/01-600px.jpg"); }
+      &#second { background-image: url("@{URLroot}/02-600px.jpg"); }
+      &#third { background-image: url("@{URLroot}/03-600px.jpg"); }
+    }
+    &.boundary {
+      @URLroot: "/images/boundary";
+      &#first { background-image: url("@{URLroot}/01-600px.jpg"); }
+      &#second { background-image: url("@{URLroot}/02-600px.png"); }
+      &#third { background-image: url("@{URLroot}/03-600px.png"); }
+      &#fourth { background-image: url("@{URLroot}/04-600px.jpg"); }
+    }
+    &.quid {
+      @URLroot: "/images/quid";
+      &#first { background-image: url("@{URLroot}/01-600px.jpg"); }
+      &#second { background-image: url("@{URLroot}/02-600px.jpg"); }
+      &#third { background-image: url("@{URLroot}/03-600px.jpg"); }
+      &#fourth { background-image: url("@{URLroot}/04-600px.jpg"); }
+      &#fifth { background-image: url("@{URLroot}/05-600px.jpg"); }
+    }
+    &.riyadh {
+      @URLroot: "/images/riyadh";
+      &#first { background-image: url("@{URLroot}/01-600px.jpg"); }
+      &#second { background-image: url("@{URLroot}/02-600px.jpg"); }
+      &#third { background-image: url("@{URLroot}/03-600px.jpg"); }
+      &#fourth { background-image: url("@{URLroot}/04-600px.jpg"); }
+    }
+    &.dragonfly {
+      @URLroot: "/images/dragonfly";
+      &#first { background-image: url("@{URLroot}/02-600px.jpg"); }
+      &#second { background-image: url("@{URLroot}/03-600px.jpg"); }
+      &#third { background-image: url("@{URLroot}/04-600px.jpg"); }
+      &#fourth { background-image: url("@{URLroot}/05-600px.jpg"); }
+      &#fifth { background-image: url("@{URLroot}/06-600px.jpg"); }
+      &#sixth { background-image: url("@{URLroot}/07-600px.jpg"); }
+    }
+    &.beekman {
+      @URLroot: "/images/beekman";
+      &#first { background-image: url("@{URLroot}/01-600px.jpg"); }
+      &#second { background-image: url("@{URLroot}/04-600px.jpg"); }
+      &#third { background-image: url("@{URLroot}/02-600px.jpg"); }
+      &#fourth { background-image: url("@{URLroot}/03-600px.jpg"); }
+    }
+    &.helios {
+      @URLroot: "/images/helios";
+      &#first { background-image: url("@{URLroot}/01-600px.jpg"); }
+      &#second { background-image: url("@{URLroot}/02-600px.jpg"); }
+      &#third { background-image: url("@{URLroot}/03-600px.jpg"); }
+    }
+  }
+  figcaption {
+    background: #111;
+    padding: 10px;
+    text-align: left;
+  }
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #b2b2b2;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #333333;
+    cursor: pointer;
+  }
+}
+
+///////////////////////////////////////////////////////////
+// MEDIA QUERIES FOR LARGER RESOLUTIONS ///////////////////
+///////////////////////////////////////////////////////////
+
+@media screen and (min-width: 800px) {
+  .overlay-close {
+    bottom: auto;
+    padding: 20px;
+    top: 20px;
+  }
+  .overlay-container {
+    font-size: 100%;
+    .container-fluid {
+      padding: 40px;
+    }
+    h4 { font-size: 100%; }
+    figure { max-width: 940px; }
+    .project-image {
+      &.tankh2o {
+        @URLroot: "/images/tankh2o";
+        &#first { background-image: url("@{URLroot}/01-940px.jpg"); }
+        &#second { background-image: url("@{URLroot}/02-940px.jpg"); }
+        &#third { background-image: url("@{URLroot}/03-940px.jpg"); }
+      }
+      &.boundary {
+        @URLroot: "/images/boundary";
+        &#first { background-image: url("@{URLroot}/01-940px.jpg"); }
+        &#second { background-image: url("@{URLroot}/02-940px.png"); }
+        &#third { background-image: url("@{URLroot}/03-940px.png"); }
+        &#fourth { background-image: url("@{URLroot}/04-940px.jpg"); }
+      }
+      &.quid {
+        @URLroot: "/images/quid";
+        &#first { background-image: url("@{URLroot}/01-940px.jpg"); }
+        &#second { background-image: url("@{URLroot}/02-940px.jpg"); }
+        &#third { background-image: url("@{URLroot}/03-940px.jpg"); }
+        &#fourth { background-image: url("@{URLroot}/04-940px.jpg"); }
+        &#fifth { background-image: url("@{URLroot}/05-940px.jpg"); }
+      }
+      &.riyadh {
+        @URLroot: "/images/riyadh";
+        &#first { background-image: url("@{URLroot}/01-940px.jpg"); }
+        &#second { background-image: url("@{URLroot}/02-940px.jpg"); }
+        &#third { background-image: url("@{URLroot}/03-940px.jpg"); }
+        &#fourth { background-image: url("@{URLroot}/04-940px.jpg"); }
+        &#fifth { background-image: url("@{URLroot}/05-940px.jpg"); }
+      }
+      &.dragonfly {
+        @URLroot: "/images/dragonfly";
+        &#first { background-image: url("@{URLroot}/02-940px.jpg"); }
+        &#second { background-image: url("@{URLroot}/03-940px.jpg"); }
+        &#third { background-image: url("@{URLroot}/04-940px.jpg"); }
+        &#fourth { background-image: url("@{URLroot}/05-940px.jpg"); }
+        &#fifth { background-image: url("@{URLroot}/06-940px.jpg"); }
+        &#sixth { background-image: url("@{URLroot}/07-940px.jpg"); }
+      }
+      &.beekman {
+        @URLroot: "/images/beekman";
+        &#first { background-image: url("@{URLroot}/01-940px.jpg"); }
+        &#second { background-image: url("@{URLroot}/04-940px.jpg"); }
+        &#third { background-image: url("@{URLroot}/02-940px.jpg"); }
+        &#fourth { background-image: url("@{URLroot}/03-940px.jpg"); }
+      }
+      &.helios {
+        @URLroot: "/images/helios";
+        &#first { background-image: url("@{URLroot}/01-940px.jpg"); }
+        &#second { background-image: url("@{URLroot}/02-940px.jpg"); }
+        &#third { background-image: url("@{URLroot}/03-940px.jpg"); }
+      }
+    }
+    figcaption {
+      padding: 20px 10px;
+    }
+    p {
+      font-size: 115%;
+      max-width: 720px;
+    }
+    .project-link {
+      max-width: 940px;
+    }
+  }
+}

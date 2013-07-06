@@ -1,0 +1,136 @@
+///////////////////////////////////////////////////////////
+// GALLERY STYLES /////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+#slideshow {
+  background-color: #111;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: -30px;
+  position: relative;
+  top: -30px;
+  z-index: 1;
+  .item {
+    @URLroot: "/images/gallery";
+    @imageCount: 6;
+    @imageDuration: 5;
+    .animation(imageAnimation unit(@imageCount * @imageDuration, s) linear infinite 0s);
+    .backface-visibility(hidden);
+    .opacity(0);
+    background-position: 50% 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    &:nth-child(1) {
+      background-image: url("@{URLroot}/000-small.jpg");
+    }
+    &:nth-child(2) {
+      .animation-delay(unit(@imageDuration, s));
+      background-image: url("@{URLroot}/001-small.jpg");
+    }
+    &:nth-child(3) {
+      .animation-delay(unit(2 *@imageDuration, s));
+      background-image: url("@{URLroot}/002-small.jpg");
+    }
+    &:nth-child(4) {
+      .animation-delay(unit(3 *@imageDuration, s));
+      background-image: url("@{URLroot}/003-small.jpg");
+    }
+    &:nth-child(5) {
+      .animation-delay(unit(4 *@imageDuration, s));
+      background-image: url("@{URLroot}/004-small.jpg");
+    }
+    &:nth-child(6) {
+      .animation-delay(unit(5 *@imageDuration, s));
+      background-image: url("@{URLroot}/005-small.jpg");
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #slideshow {
+    height: 500px;
+    margin-bottom: -90px;
+    top: -90px;
+    .item {
+      @URLroot: "/images/gallery";
+      height: 500px;
+      &:nth-child(1) {
+        background-image: url("@{URLroot}/000.jpg");
+      }
+      &:nth-child(2) {
+        background-image: url("@{URLroot}/001.jpg");
+      }
+      &:nth-child(3) {
+        background-image: url("@{URLroot}/002.jpg");
+      }
+      &:nth-child(4) {
+        background-image: url("@{URLroot}/003.jpg");
+      }
+      &:nth-child(5) {
+        background-image: url("@{URLroot}/004.jpg");
+      }
+      &:nth-child(6) {
+        background-image: url("@{URLroot}/005.jpg");
+      }
+    }
+  }
+}
+
+@-webkit-keyframes imageAnimation {
+    0% { opacity: 0;
+    -webkit-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -webkit-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation {
+    0% { opacity: 0;
+    -moz-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -moz-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation {
+    0% { opacity: 0;
+    -o-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -o-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation {
+    0% { opacity: 0;
+    -ms-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -ms-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes imageAnimation {
+    0% { opacity: 0;
+    animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+.no-cssanimations .item:nth-child(1){
+  opacity: 1;
+}
