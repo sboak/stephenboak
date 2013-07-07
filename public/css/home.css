@@ -1597,11 +1597,13 @@ h3 {
   text-align: center;
 }
 #portfolio ul li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #111;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  box-sizing: border-box;
   display: inline-block;
   height: 175px;
   position: relative;
@@ -1731,6 +1733,8 @@ h3 {
   text-align: center;
 }
 #writing #instagram a {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
   -webkit-transition: -moz-transform 0.1s ease-out;
@@ -1758,6 +1762,8 @@ h3 {
   visibility: visible;
 }
 #writing #instagram .instagram-image {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   min-width: 120px;
   max-width: 400px;
