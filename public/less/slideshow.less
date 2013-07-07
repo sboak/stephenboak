@@ -5,9 +5,11 @@
 
 #home-intro {
   position: absolute;
-  top: 110px;
-  left: 10%;
-  width: 75%;
+  top: 140px;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  width: 90%;
   z-index: 2;
   h1 { font-size: @baseFontSize * 1.5; }
   h1,h2 {
@@ -35,7 +37,7 @@
     .animation(imageAnimation unit(@imageCount * @imageDuration, s) linear infinite 0s);
     .backface-visibility(hidden);
     .opacity(0);
-    background-position: 50% 35%;
+    background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     height: 250px;
@@ -77,8 +79,7 @@
   #home-intro {
     h1 { font-size: @baseFontSize * 2.5; }
     h2 { font-size: @baseFontSize * 2; }
-    width: 50%;
-    top: 170px;
+    top: 270px;
   }
   #slideshow {
     height: 450px;

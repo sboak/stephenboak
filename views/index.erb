@@ -20,11 +20,21 @@
   <div class="container-fluid">
       <section class="L2"><div class="content-padded">
         <h3>I'm Interested In</h3>
+        <ul id="interest-list">
+          <li>
+            <h5>Data Visualization & Big Data</h5>
+            <p>I love <a title="Blog post on flow visualization" target="_blank" href="http://blog.stephenboak.com/2012/06/15/d3-flow-vis-tutorial.html">exploring</a> and <a title="Blog post on marathon training data" target="_blank" href="http://blog.stephenboak.com/2012/05/18/marathon.html">telling stories</a> with data.</p>
+          </li>
+          <li>
+            <h5>Technical Projects</h5>
+            <p>I'm trained and experienced as both an engineer & designer. I know what each role brings to great products, and gravitate toward challenging technical projects where I can use both.</p>
+          </li>
+          <li>
+            <h5>Agile Design Practice</h5>
+            <p>I think product design teams should function the same way engineering teams do, constantly adapting and improving features to meet user needs, and not handing off PSDs. Designers making products for the web should be able to write code.</p>
+          </li>
+        </ul>
         <dl>
-          <dt>Data Visualization & Big Data</dt><dd>I love <a title="Blog post on flow visualization" target="_blank" href="http://blog.stephenboak.com/2012/06/15/d3-flow-vis-tutorial.html">exploring</a> and <a title="Blog post on marathon training data" target="_blank" href="http://blog.stephenboak.com/2012/05/18/marathon.html">telling stories</a> with data.</dd>
-          <dt>Hard Technical Challenges</dt><dd>I'm trained and experienced as both an engineer & designer. I know what each role brings to great products, and gravitate toward hard technical challenges where I can use both.</dd>
-          <dt>Agile Design Practice</dt><dd>I think product design teams should function the same way engineering teams do, constantly adapting and improving features to meet user needs, and not handing off PSDs. Designers making products for the web should be able to write code.</dd>
-        </dl>
       </div></section>
 
       <section class="L2"><div class="content-padded">
@@ -35,13 +45,13 @@
 
         <h3>Lifestyle</h3>
         <ul class="label-list"><!--
-       --><li>Running</li><!--
-       --><li>Skiing</li><!--
-       --><li>Photography</li><!--
-       --><li>Coffee</li><!--
-       --><li>Trekking</li><!--
-       --><li>Scuba diving</li><!--
-       --><li>Triathlons</li><!--
+       --><li><h5>Running</h5></li><!--
+       --><li><h5>Skiing</h5></li><!--
+       --><li><h5>Photography</h5></li><!--
+       --><li><h5>Coffee</h5></li><!--
+       --><li><h5>Trekking</h5></li><!--
+       --><li><h5>Scuba diving</h5></li><!--
+       --><li><h5>Triathlons</h5></li><!--
      --></ul>
       </div></section>
   </div>
@@ -85,7 +95,7 @@
         <div id="tweets">
           <ul>
             <% @tweets.each do |t| %>
-              <li><a class="img" target="_blank" href="<%= 'https://www.twitter.com/' + t.user.screen_name + '/status/' + t.id.to_s %>"><img src="<%= t.user.profile_image_url_https %>"/></a><p><span class="body-text"><%= t.text %></span><span class="date"> – <a target="_blank" href="<%= 'https://www.twitter.com/' + t.user.screen_name + '/status/' + t.id.to_s %>"><%=t.created_at.strftime("%b %d, %Y") %></a></span></p></li>
+              <li><a class="img" target="_blank" href="<%= 'https://www.twitter.com/' + t.user.screen_name + '/status/' + t.id.to_s %>"><img alt="twitter profile pic" src="<%= t.user.profile_image_url_https %>"/></a><p><span class="body-text"><%= t.text %></span><span class="date"> – <a target="_blank" href="<%= 'https://www.twitter.com/' + t.user.screen_name + '/status/' + t.id.to_s %>"><%=t.created_at.strftime("%b %d, %Y") %></a></span></p></li>
             <% end %>
           </ul>
         </div>

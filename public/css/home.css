@@ -910,9 +910,11 @@ nav ul li {
 }
 #home-intro {
   position: absolute;
-  top: 110px;
-  left: 10%;
-  width: 75%;
+  top: 140px;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  width: 90%;
   z-index: 2;
 }
 #home-intro h1 {
@@ -948,7 +950,7 @@ nav ul li {
   backface-visibility: hidden;
   opacity: 0;
   filter: alpha(opacity=0);
-  background-position: 50% 35%;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
@@ -1006,8 +1008,7 @@ nav ul li {
 }
 @media screen and (min-width: 800px) {
   #home-intro {
-    width: 50%;
-    top: 170px;
+    top: 270px;
   }
   #home-intro h1 {
     font-size: 40px;
@@ -1523,6 +1524,8 @@ h3 {
   margin-bottom: 15px;
 }
 #about h3 {
+  color: #BBB;
+  font-weight: normal;
   text-align: center;
 }
 #about #headline {
@@ -1535,10 +1538,30 @@ h3 {
   margin: auto;
   width: 90%;
 }
+#about #interest-list {
+  list-style: none;
+  margin: 0 0 0 0;
+}
+#about #interest-list li {
+  margin-bottom: 20px;
+}
+#about #interest-list li:last-child {
+  margin-bottom: 0;
+}
+#about #interest-list h5 {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #262626;
+  padding: 5px 0;
+  text-align: center;
+}
 #about .L2 {
   display: block;
+  width: 100%;
 }
 #about .label-list {
+  font-size: 110%;
   list-style: none;
   margin: 0;
   text-align: center;
@@ -1550,7 +1573,10 @@ h3 {
   background-color: #262626;
   display: inline-block;
   margin: 0 5px 5px 0;
-  padding: 3px 8px;
+  padding: 5px 10px;
+}
+#about .label-list h5 {
+  margin: 0;
 }
 #about dt {
   color: white;
@@ -1834,14 +1860,24 @@ footer .L2 p {
     background-color: rgba(0, 0, 0, 0.75);
     border-color: white;
   }
+  #about #interest-list p {
+    text-align: justify;
+  }
+  #about .label-list {
+    font-size: 115%;
+  }
   #about #headline p {
     font-size: 115%;
     max-width: 720px;
+    text-align: justify;
   }
   #about .L2 {
     display: inline-block;
     vertical-align: top;
     width: 49%;
+  }
+  #about #social {
+    margin-bottom: 20px;
   }
   #about #social .social_link {
     width: 36px;
