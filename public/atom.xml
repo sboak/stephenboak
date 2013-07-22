@@ -3,12 +3,26 @@
  <title>Stephen Boak - Blog</title>
  <link href="http://blog.stephenboak.com/atom.xml" rel="self"/>
  <link href="http://blog.stephenboak.com/"/>
- <updated>2012-10-28T19:50:59-07:00</updated>
+ <updated>2013-07-21T17:28:23-07:00</updated>
  <id>http://blog.stephenboak.com/</id>
  <author>
    <name>Stephen Boak</name>
    <email>stephen.boak@gmail.com</email>
  </author>
+ 
+ <entry>
+   <title>I Don't Normally Make Infographics But...</title>
+   <link href="http://blog.stephenboak.com/2013/07/21/honeymoon-infographic.html"/>
+   <updated>2013-07-21T00:00:00-07:00</updated>
+   <id>http://blog.stephenboak.com/2013/07/21/honeymoon-infographic</id>
+   <content type="html">&lt;h1&gt;&lt;a href=&quot;/2013/07/21/honeymoon-infographic.html&quot;&gt;I Don&amp;#8217;t Normally Make Infographics But&amp;#8230;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;I made a map of our upcoming 3-month adventure. I don&amp;#8217;t normally make infographics, but this one I&amp;#8217;m proud of :)&lt;/p&gt;
+&lt;p&gt;&lt;a target=&quot;_blank&quot; href=&quot;/images/Honeymoon-Map.png&quot;&gt;&lt;img src=&quot;/images/Honeymoon-Map.png&quot; width=&quot;650&quot; style=&quot;width: 650px;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+   <author>
+     <name>Stephen Boak</name>
+     <uri>http://www.stephenboak.com</uri>
+   </author>
+ </entry>
  
  <entry>
    <title>Kindle Highlights: 'How to Win Friends and Influence People'</title>
