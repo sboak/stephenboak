@@ -1506,7 +1506,6 @@ h3 {
   padding: 0 10px 0 10px;
 }
 .seperator {
-  background: #111;
   margin: 0 0 20px 0;
   padding: 6px 0;
 }
@@ -1887,7 +1886,7 @@ footer .L2 p {
   }
   #portfolio ul > li {
     border: 1px solid #111;
-    height: 200px;
+    height: 240px;
     margin: 0;
     width: 50%;
   }
