@@ -104,7 +104,7 @@ $.ajax({
   type: "GET",
   dataType: "jsonp",
   cache: false,
-  url: 'https://api.instagram.com/v1/users/559599/media/recent/?access_token=559599.1fb234f.e70ae04287a84b7ebb8105678e2293e8',
+  url: 'https://api.instagram.com/v1/users/559599/media/recent/?client_id=cd2b29d40b0041f08cbbaee41bc50b87',
   success: function(res) {
     var limit = 8;
 
