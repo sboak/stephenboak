@@ -106,6 +106,14 @@ body.overlay {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    &.opsmatic {
+      @URLroot: "/images/opsmatic";
+      &#first { background-image: url("@{URLroot}/01-720px.gif"); }
+      &#second { background-image: url("@{URLroot}/02-720px.gif"); }
+      &#third { background-image: url("@{URLroot}/03-720px.gif"); }
+      &#fourth { background-image: url("@{URLroot}/04-720px.gif"); }
+      &#fifth { background-image: url("@{URLroot}/06-720px.png"); }
+    }
     &.tankh2o {
       @URLroot: "/images/tankh2o";
       &#first { background-image: url("@{URLroot}/01-600px.jpg"); }
@@ -160,8 +168,12 @@ body.overlay {
   }
   figcaption {
     background: #111;
+    margin: 0 auto;
     padding: 10px;
     text-align: left;
+  }
+  .project-image.opsmatic ~ figcaption {
+    max-width: 720px;
   }
   &::-webkit-scrollbar {
     height: 6px;
@@ -200,6 +212,14 @@ body.overlay {
     h4 { font-size: 100%; }
     figure { max-width: 940px; }
     .project-image {
+      &.opsmatic {
+        @URLroot: "/images/opsmatic";
+        max-width: 720px;
+        &#first { background-image: url("@{URLroot}/01-720px.gif"); }
+        &#second { background-image: url("@{URLroot}/02-720px.gif"); }
+        &#third { background-image: url("@{URLroot}/03-720px.gif"); }
+        &#fourth { background-image: url("@{URLroot}/04-720px.gif"); }
+      }
       &.tankh2o {
         @URLroot: "/images/tankh2o";
         &#first { background-image: url("@{URLroot}/01-940px.jpg"); }

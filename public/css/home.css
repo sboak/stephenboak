@@ -1261,6 +1261,21 @@ body.overlay .overlay-close {
   background-size: cover;
   width: 100%;
 }
+.overlay-container .project-image.opsmatic#first {
+  background-image: url("/images/opsmatic/01-720px.gif");
+}
+.overlay-container .project-image.opsmatic#second {
+  background-image: url("/images/opsmatic/02-720px.gif");
+}
+.overlay-container .project-image.opsmatic#third {
+  background-image: url("/images/opsmatic/03-720px.gif");
+}
+.overlay-container .project-image.opsmatic#fourth {
+  background-image: url("/images/opsmatic/04-720px.gif");
+}
+.overlay-container .project-image.opsmatic#fifth {
+  background-image: url("/images/opsmatic/06-720px.png");
+}
 .overlay-container .project-image.tankh2o#first {
   background-image: url("/images/tankh2o/01-600px.jpg");
 }
@@ -1353,8 +1368,12 @@ body.overlay .overlay-close {
 }
 .overlay-container figcaption {
   background: #111;
+  margin: 0 auto;
   padding: 10px;
   text-align: left;
+}
+.overlay-container .project-image.opsmatic ~ figcaption {
+  max-width: 720px;
 }
 .overlay-container::-webkit-scrollbar {
   height: 6px;
@@ -1388,6 +1407,21 @@ body.overlay .overlay-close {
   }
   .overlay-container figure {
     max-width: 940px;
+  }
+  .overlay-container .project-image.opsmatic {
+    max-width: 720px;
+  }
+  .overlay-container .project-image.opsmatic#first {
+    background-image: url("/images/opsmatic/01-720px.gif");
+  }
+  .overlay-container .project-image.opsmatic#second {
+    background-image: url("/images/opsmatic/02-720px.gif");
+  }
+  .overlay-container .project-image.opsmatic#third {
+    background-image: url("/images/opsmatic/03-720px.gif");
+  }
+  .overlay-container .project-image.opsmatic#fourth {
+    background-image: url("/images/opsmatic/04-720px.gif");
   }
   .overlay-container .project-image.tankh2o#first {
     background-image: url("/images/tankh2o/01-940px.jpg");
@@ -1637,6 +1671,9 @@ h3 {
   text-align: left;
   vertical-align: top;
   width: 100%;
+}
+#portfolio ul li#opsmatic-thumb {
+  background-image: url('/images/thumb2-opsmatic.png');
 }
 #portfolio ul li#boundary-thumb {
   background-image: url('/images/thumb2-boundary.png');

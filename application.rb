@@ -56,6 +56,10 @@ get '/helios' do
   erb :helios
 end
 
+get '/opsmatic' do
+  erb :opsmatic
+end
+
 get '/quid' do
   erb :quid
 end
